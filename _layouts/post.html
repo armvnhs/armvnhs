@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<a class="back" href="/blog/">← Blog</a>
+<article class="post">
+<header class="post-head">
+<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+<h1 dir="auto">{{ page.title }}</h1>
+{%- if page.summary.size > 0 %}
+<p class="post-sum" dir="auto">{{ page.summary }}</p>
+{%- endif %}
+</header>
+{%- if page.cover.size > 0 %}
+<img class="post-cover" src="{{ page.cover | uri_escape }}" alt="" decoding="async">
+{%- endif %}
+<div class="prose post-body">
+{{ content }}
+</div>
+</article>

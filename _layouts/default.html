@@ -45,10 +45,11 @@
 </main>
 <nav class="nav dock" aria-label="Main">
 <a class="dock-avatar" href="/" aria-label="Home"><img src="{{ site.data.site.avatar | uri_escape }}" alt="" width="34" height="34"></a>
-<a href="/" data-key="h"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}><span class="label">Home</span><span class="keys"><kbd>G</kbd><kbd>H</kbd></span></a>
-<a href="/projects/" data-key="j"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}><span class="label">Projects</span><span class="keys"><kbd>G</kbd><kbd>J</kbd></span></a>
-<a href="/resume/" data-key="r"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}><span class="label">Resume</span><span class="keys"><kbd>G</kbd><kbd>R</kbd></span></a>
-<a href="/contact/" data-key="c"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}><span class="label">Contact</span><span class="keys"><kbd>G</kbd><kbd>C</kbd></span></a>
+<a href="/"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}><span class="label">Home</span></a>
+<a href="/projects/"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}><span class="label">Projects</span></a>
+<a href="/blog/"{% if page.nav == 'blog' %} class="active" aria-current="page"{% endif %}><span class="label">Blog</span></a>
+<a href="/resume/"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}><span class="label">Resume</span></a>
+<a href="/contact/"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}><span class="label">Contact</span></a>
 </nav>
 <script>
 (function(){
@@ -67,17 +68,6 @@
     var t=function(){c.textContent=f.format(new Date())};
     t();setInterval(t,15000);
   }
-  var armed=false,timer;
-  document.addEventListener("keydown",function(e){
-    if(e.metaKey||e.ctrlKey||e.altKey)return;
-    var el=e.target,tag=el.tagName;
-    if(tag==="INPUT"||tag==="TEXTAREA"||el.isContentEditable)return;
-    var k=e.key.toLowerCase();
-    if(!armed){if(k==="g"){armed=true;clearTimeout(timer);timer=setTimeout(function(){armed=false},900)}return}
-    armed=false;
-    var a=document.querySelector('.nav a[data-key="'+k+'"]');
-    if(a){e.preventDefault();location.href=a.href}
-  });
 })();
 </script>
 </body>

@@ -8,11 +8,19 @@ status_labels:
   busy: Busy right now
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 collections:
   companies:
     output: true
     permalink: /company/:name/
 defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: blog
+      permalink: /blog/:slug/
   - scope:
       path: ""
       type: companies
