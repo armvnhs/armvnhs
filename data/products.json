@@ -3,14 +3,14 @@
     {
       "name": "LogoSVG",
       "type": "Website",
-      "description": "An open-source library of Iranian logos in SVG.",
+      "description": "کتابخانه‌ی متن‌باز لوگوهای ایرانی با فرمت SVG.",
       "logo": "/assets/img/Products/LogoSVG-Icon.webp",
       "link": "https://logosvg.ir"
     },
     {
       "name": "FireBlock",
       "type": "Software",
-      "description": "A practical app for blocking internet access via firewall.",
+      "description": "اپ کاربردی برای قطع دسترسی اینترنت با فایروال.",
       "logo": "/assets/img/Products/FireBlock-Icon.webp",
       "link": "https://armvnhs.github.io/fireblock/"
     }

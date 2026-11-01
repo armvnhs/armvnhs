@@ -1,6 +1,6 @@
 {
   "name": "Arman Haghshenas",
-  "tagline": "Visual Identity Designer  • Vibe Coding",
+  "tagline": "طراح هویت بصری • Vibe Coding",
   "avatar": "/assets/img/Temp/Profile.png",
   "ogImage": "/assets/img/Temp/Preview.webp",
   "chatAvatar": "/assets/img/Temp/Logo-Bot.jpg",
@@ -9,7 +9,7 @@
   "email": "armvnhs@gmail.com",
   "telegram": "https://t.me/armvnpv",
   "phone": "+989135957196",
-  "contactText": "Have a project in mind? Let’s talk.",
+  "contactText": "پروژه‌ای در ذهن داری؟ بیا درباره‌اش حرف بزنیم.",
   "social": [
     {
       "label": "Behance",
@@ -28,8 +28,9 @@
       "url": "https://www.linkedin.com/in/armvnhs"
     }
   ],
-  "bio": "I design logos and visual identities, and build small tools along the way. Based in Isfahan, currently at Entekhab Group.",
-  "city": "Isfahan, Iran",
+  "bio": "لوگو و هویت بصری طراحی می‌کنم و کنارش ابزارهای کوچک می‌سازم. ساکن اصفهانم و در گروه انتخاب کار می‌کنم.",
+  "city": "اصفهان، ایران",
   "timezone": "Asia/Tehran",
-  "coords": "32.6546° N 51.6680° E"
+  "coords": "۳۲٫۶۵۴۶° شمالی ۵۱٫۶۶۸۰° شرقی",
+  "nameFa": "آرمان حق‌شناس"
 }

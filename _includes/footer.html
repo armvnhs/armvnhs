@@ -2,30 +2,29 @@
 <footer class="foot">
 <div class="foot-cols">
 <div class="foot-col">
-<h2 class="foot-label">Contact</h2>
+<h2 class="foot-label">ارتباط</h2>
 <ul>
 {%- for l in s.social %}{%- if l.url.size > 0 %}
 <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a></li>
 {%- endif %}{%- endfor %}
-{%- if s.email.size > 0 %}<li><a href="mailto:{{ s.email }}">Email</a></li>{%- endif %}
+{%- if s.email.size > 0 %}<li><a href="mailto:{{ s.email }}">ایمیل</a></li>{%- endif %}
 </ul>
 </div>
 <div class="foot-col">
-<h2 class="foot-label">Index</h2>
+<h2 class="foot-label">فهرست</h2>
 <ul>
-<li><a href="/">Home</a></li>
-<li><a href="/projects/">Projects</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/resume/">Resume</a></li>
-<li><a href="/contact/">Contact</a></li>
+<li><a href="/">خانه</a></li>
+<li><a href="/projects/">پروژه‌ها</a></li>
+<li><a href="/blog/">وبلاگ</a></li>
+<li><a href="/resume/">رزومه</a></li>
+<li><a href="/contact/">ارتباط</a></li>
 <li><a href="/feed.xml">RSS</a></li>
 </ul>
 </div>
 </div>
 <div class="foot-meta">
-<span class="foot-copy">© {{ 'now' | date: '%Y' }} {{ s.name }}</span>
+<span class="foot-copy">© <span data-year>{{ 'now' | date: '%Y' }}</span> {{ s.nameFa | default: s.name }}</span>
 <span class="foot-braille" aria-hidden="true">{{ s.braille | default: '⠁⠗⠍⠧⠝⠓⠎' }}</span>
-<span class="foot-clock" data-tz="{{ s.timezone | default: 'Asia/Tehran' }}">--:--</span>
 {%- if s.coords.size > 0 %}<span class="foot-coords">{{ s.coords }}</span>{%- endif %}
 </div>
 </footer>

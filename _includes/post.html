@@ -1,0 +1,8 @@
+<a class="pcard" href="{{ include.p.url }}">
+<span class="pc-thumb">{%- if include.p.cover.size > 0 -%}<img src="{{ include.p.cover | uri_escape }}" alt="" loading="lazy" decoding="async">{%- else -%}<b>{{ include.p.title | slice: 0 }}</b>{%- endif -%}</span>
+<span class="pc-body">
+<time datetime="{{ include.p.date | date_to_xmlschema }}">{{ include.p.date | date: "%Y/%m/%d" }}</time>
+<span class="pc-title" dir="auto">{{ include.p.title }}</span>
+{%- if include.p.summary.size > 0 -%}<span class="pc-sum" dir="auto">{{ include.p.summary }}</span>{%- endif -%}
+</span>
+</a>

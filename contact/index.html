@@ -1,204 +1,53 @@
 ---
 layout: default
 nav: contact
-title: Contact — Arman Haghshenas
+title: ارتباط — Arman Haghshenas
 ---
 {%- assign s = site.data.site -%}
-{%- assign status_text = site.status_labels[s.status] -%}
-{%- assign tg = s.telegram | default: 'armvnpv' | remove: 'https://' | remove: 'http://' | remove: 't.me/' | remove: '@' -%}
-{%- assign phone = s.phone | default: '+989135957196' -%}
-{%- if phone.size == 13 and phone contains '+98' -%}
-{%- capture phone_label -%}{{ phone | slice: 0, 3 }} {{ phone | slice: 3, 3 }} {{ phone | slice: 6, 3 }} {{ phone | slice: 9, 4 }}{%- endcapture -%}
-{%- else -%}
-{%- assign phone_label = phone -%}
-{%- endif -%}
-{%- assign tg_url = 'https://t.me/' | append: tg -%}
-{%- assign phone_url = 'tel:' | append: phone -%}
-{%- assign mail_url = 'mailto:' | append: s.email -%}
-{%- assign wa_num = s.whatsapp | default: phone | remove: '+' | remove: ' ' | remove: '-' -%}
-{%- assign wa_url = 'https://wa.me/' | append: wa_num -%}
-{%- assign first_name = s.name | split: ' ' | first -%}
-{%- assign has_form = false -%}
-{%- if s.formEndpoint contains 'http' -%}{%- assign has_form = true -%}{%- endif -%}
-<h1 class="sr-only">Contact</h1>
-<div class="ch-stage">
-<section class="ch" id="chat" data-endpoint="{% if has_form %}{{ s.formEndpoint }}{% endif %}" data-wa="{{ wa_num }}" data-tg="{{ tg }}" data-mail="{{ s.email }}" data-owner="{{ first_name | escape }}" data-intro="{{ s.contactText | escape }}">
-<header class="ch-head">
-<span class="ch-avatar">{%- assign chat_img = s.chatAvatar | default: s.avatar -%}{%- if chat_img.size > 0 -%}<img src="{{ chat_img | uri_escape }}" alt="{{ s.name }}" width="48" height="48">{%- else -%}{{ s.name | slice: 0 }}{%- endif -%}</span>
-<span class="ch-who"><b>{{ s.name }}<em class="ch-badge">Bot</em></b>{%- if status_text.size > 0 %}<small class="is-{{ s.status }}"><i></i>{{ status_text }}</small>{%- endif %}</span>
-<span class="ch-actions">
-<a class="ch-act is-phone" href="{{ phone_url }}" aria-label="Phone" title="{{ phone_label }}">{% include icon.html name="phone" %}</a>
-<a class="ch-act is-tg" href="{{ tg_url }}" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram">{% include icon.html name="brand-telegram" %}</a>
-<a class="ch-act is-wa" href="{{ wa_url }}" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">{% include icon.html name="brand-whatsapp" %}</a>
-</span>
-</header>
-<p class="ch-note">Automated assistant, not a live chat. {{ first_name }} reads every message and replies personally.</p>
-<div class="ch-thread" id="ch-thread" role="log" aria-live="polite"></div>
-<form class="ch-composer" id="ch-form" autocomplete="off">
-<textarea id="ch-input" rows="1" dir="auto" placeholder="Say hi…" aria-label="Message" disabled></textarea>
-<button class="ch-send" type="submit" aria-label="Send" disabled>{% include icon.html name="send" %}</button>
+{%- assign tg = s.telegram | remove: 'https://' | remove: 'http://' | remove: 't.me/' | remove: '@' -%}
+{%- assign phone = s.phone -%}
+{%- assign wa = s.whatsapp | default: phone | remove: '+' | remove: ' ' | remove: '-' -%}
+{%- assign fa = "۰,۱,۲,۳,۴,۵,۶,۷,۸,۹" | split: "," -%}
+<a class="back" href="/">→ خانه</a>
+<div class="page-head">
+<h1 class="page-title">بیا حرف بزنیم</h1>
+<p class="page-lead">{{ s.contactText }}</p>
+</div>
+<section class="block">
+<div class="section-head"><h2 class="section-title"><span class="num">۰۱</span>راه‌های ارتباطی</h2></div>
+<ul class="clist">
+{%- if s.email.size > 0 %}<li><a class="crow" href="mailto:{{ s.email }}"><span class="ci">{% include icon.html name="mail" %}</span><span class="cm"><b>ایمیل</b><small dir="ltr">{{ s.email }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if tg.size > 0 %}<li><a class="crow" href="https://t.me/{{ tg }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-telegram" %}</span><span class="cm"><b>تلگرام</b><small dir="ltr">@{{ tg }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if wa.size > 0 %}<li><a class="crow" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-whatsapp" %}</span><span class="cm"><b>واتساپ</b><small dir="ltr">+{{ wa }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if phone.size > 0 %}<li><a class="crow" href="tel:{{ phone }}"><span class="ci">{% include icon.html name="phone" %}</span><span class="cm"><b>تماس</b><small dir="ltr">{{ phone }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+</ul>
+</section>
+<section class="block">
+<div class="section-head"><h2 class="section-title"><span class="num">۰۲</span>پیام بگذار</h2></div>
+<form class="cf" id="cf" data-endpoint="{% if s.formEndpoint contains 'http' %}{{ s.formEndpoint }}{% endif %}" data-mail="{{ s.email }}">
+<label><span>نام</span><input name="name" required dir="auto" autocomplete="name"></label>
+<label><span>ایمیل یا شماره‌ی تماس</span><input name="contact" required dir="ltr" autocomplete="off"></label>
+<label><span>درباره‌ی پروژه</span><textarea name="message" rows="5" required dir="auto"></textarea></label>
+<button class="btn" type="submit">ارسال پیام<span class="arrow">{% include icon.html name="send" %}</span></button>
+<p class="cf-note" role="status" aria-live="polite"></p>
 </form>
 </section>
-</div>
+{% include footer.html %}
 <script>
-(function () {
-  var root = document.getElementById('chat');
-  if (!root) return;
-  var th = document.getElementById('ch-thread');
-  var form = document.getElementById('ch-form');
-  var input = document.getElementById('ch-input');
-  var send = form.querySelector('.ch-send');
-  var d = root.dataset;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var st = { step: 0, name: '', message: '', contact: '' };
-  var ICONS = {
-    wa: '{% capture i %}{% include icon.html name="brand-whatsapp" %}{% endcapture %}{{ i | strip_newlines }}',
-    tg: '{% capture i %}{% include icon.html name="brand-telegram" %}{% endcapture %}{{ i | strip_newlines }}',
-    mail: '{% capture i %}{% include icon.html name="mail" %}{% endcapture %}{{ i | strip_newlines }}'
-  };
-
-  function toBottom() {
-    th.scrollTo({ top: th.scrollHeight, behavior: reduce ? 'auto' : 'smooth' });
-  }
-  function bubble(text, who) {
-    var b = document.createElement('div');
-    b.className = 'ch-msg is-' + who;
-    var p = document.createElement('p');
-    p.dir = 'auto';
-    p.textContent = text;
-    b.appendChild(p);
-    th.appendChild(b);
-    toBottom();
-    return b;
-  }
-  function typing() {
-    var b = document.createElement('div');
-    b.className = 'ch-msg is-bot is-typing';
-    b.innerHTML = '<p><i></i><i></i><i></i></p>';
-    th.appendChild(b);
-    toBottom();
-    return b;
-  }
-  function setInput(on, ph) {
-    input.disabled = !on;
-    send.disabled = !on;
-    if (ph) input.placeholder = ph;
-    if (on) input.focus({ preventScroll: true });
-  }
-  function grow() {
-    input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
-  }
-  function say(lines, done) {
-    lines = [].concat(lines);
-    var i = 0;
-    setInput(false);
-    (function next() {
-      if (i >= lines.length) { if (done) done(); return; }
-      var line = lines[i++];
-      var t = typing();
-      setTimeout(function () {
-        t.remove();
-        bubble(line, 'bot');
-        next();
-      }, reduce ? 0 : Math.min(900, 380 + line.length * 14));
-    })();
-  }
-  function fullText() {
-    return 'Hi, I’m ' + st.name + '. ' + st.message + '\n\nContact: ' + st.contact;
-  }
-  function chip(html, label, href, onClick) {
-    var a = document.createElement('a');
-    a.className = 'ch-chip';
-    a.href = href;
-    if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
-    a.innerHTML = html + '<span>' + label + '</span>';
-    if (onClick) a.addEventListener('click', onClick);
-    return a;
-  }
-  function chips() {
-    var box = document.createElement('div');
-    box.className = 'ch-chips';
-    var text = fullText();
-    if (d.wa) box.appendChild(chip(ICONS.wa, 'WhatsApp', 'https://wa.me/' + d.wa + '?text=' + encodeURIComponent(text)));
-    if (d.tg) box.appendChild(chip(ICONS.tg, 'Telegram', 'https://t.me/' + d.tg, function () {
-      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () {
-        bubble('Message copied. Just paste it in the chat.', 'bot');
-      });
-    }));
-    if (d.mail) box.appendChild(chip(ICONS.mail, 'Email', 'mailto:' + d.mail + '?subject=' + encodeURIComponent('Project inquiry from ' + st.name) + '&body=' + encodeURIComponent(text)));
-    th.appendChild(box);
-    toBottom();
-  }
-  function finish() {
-    if (!d.endpoint) {
-      say('Got it. Last step: where should we continue?', function () {
-        chips();
-        input.placeholder = 'Conversation complete';
-      });
-      return;
+(function(){
+  var f=document.getElementById("cf");if(!f)return;
+  var note=f.querySelector(".cf-note");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var fd=new FormData(f),ep=f.dataset.endpoint;
+    if(ep){
+      fetch(ep,{method:"POST",body:fd,headers:{Accept:"application/json"}}).then(function(r){
+        if(!r.ok)throw 0;f.reset();note.textContent="پیامت رسید. به‌زودی جواب می‌دهم."
+      }).catch(function(){note.textContent="ارسال نشد. از یکی از راه‌های بالا پیام بده."});
+    }else{
+      var body=fd.get("message")+"\n\n"+fd.get("name")+" — "+fd.get("contact");
+      location.href="mailto:"+f.dataset.mail+"?subject="+encodeURIComponent("پروژه از طرف "+fd.get("name"))+"&body="+encodeURIComponent(body);
     }
-    var t = typing();
-    var fd = new FormData();
-    fd.append('name', st.name);
-    fd.append('email', st.contact);
-    fd.append('message', st.message);
-    fetch(d.endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
-      .then(function (r) {
-        t.remove();
-        if (!r.ok) throw new Error('bad');
-        say(['Sent. Thank you, ' + st.name + '.', 'I’ll get back to you soon.'], function () {
-          input.placeholder = 'Conversation complete';
-        });
-      })
-      .catch(function () {
-        t.remove();
-        say('That didn’t go through. Pick another way to reach me:', function () {
-          chips();
-          input.placeholder = 'Conversation complete';
-        });
-      });
-  }
-  function submit() {
-    var v = input.value.trim();
-    if (!v || input.disabled) return;
-    bubble(v, 'user');
-    input.value = '';
-    grow();
-    if (st.step === 1) {
-      st.name = v;
-      say(['Nice to meet you, ' + v + '.', 'Tell me about your project.'], function () {
-        st.step = 2;
-        setInput(true, 'Describe your project…');
-      });
-    } else if (st.step === 2) {
-      st.message = v;
-      say('And where can I reach you? Email, phone or Telegram.', function () {
-        st.step = 3;
-        setInput(true, 'Email, phone or @username');
-      });
-    } else if (st.step === 3) {
-      st.contact = v;
-      st.step = 4;
-      setInput(false);
-      finish();
-    }
-  }
-
-  form.addEventListener('submit', function (e) { e.preventDefault(); submit(); });
-  input.addEventListener('input', grow);
-  input.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); submit(); }
   });
-
-  var intro = ['Hi there.'];
-  if (d.intro) intro.push(d.intro);
-  intro.push('First, what should I call you?');
-  setTimeout(function () {
-    say(intro, function () {
-      st.step = 1;
-      setInput(true, 'Your name');
-    });
-  }, reduce ? 0 : 900);
 })();
 </script>

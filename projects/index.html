@@ -1,12 +1,12 @@
 ---
 layout: default
 nav: projects
-title: Projects — Arman Haghshenas
+title: پروژه‌ها — Arman Haghshenas
 ---
 {%- assign items = site.data.projects.items -%}
 {%- assign cats = items | map: 'category' | compact | uniq -%}
-<a class="back" href="/">← Home</a>
-<h1 class="page-title">Projects</h1>
+<a class="back" href="/">→ خانه</a>
+<div class="page-head"><h1 class="page-title">پروژه‌ها</h1></div>
 {%- if cats.size > 1 %}
 <style>
 {%- for c in cats %}
@@ -22,7 +22,7 @@ title: Projects — Arman Haghshenas
 <input class="fr" type="radio" name="cat" id="f-{{ forloop.index }}">
 {%- endfor %}
 <div class="filters">
-<label class="chip" for="f-0">All</label>
+<label class="chip" for="f-0">همه</label>
 {%- for c in cats %}
 <label class="chip" for="f-{{ forloop.index }}">{{ c }}</label>
 {%- endfor %}

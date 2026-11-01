@@ -5,6 +5,8 @@ title: Arman Haghshenas — Logo and brand designer
 ---
 {%- assign s = site.data.site -%}
 {%- assign status_text = site.status_labels[s.status] -%}
+{%- assign fa = "۰,۱,۲,۳,۴,۵,۶,۷,۸,۹" | split: "," -%}
+{%- assign tags = s.tagline | split: "•" -%}
 {%- assign projects = site.data.projects.items -%}
 {%- assign companies = site.companies | sort: 'order' -%}
 {%- assign products = site.data.products.items -%}
@@ -14,31 +16,25 @@ title: Arman Haghshenas — Logo and brand designer
 <header class="hero">
 <div class="avatar-wrap">
 <img class="avatar" src="{{ s.avatar | uri_escape }}" alt="{{ s.name }}" width="92" height="92" fetchpriority="high" decoding="async">
-{%- if status_text.size > 0 %}
-<span class="status is-{{ s.status }}" tabindex="0" aria-label="{{ status_text }}"><span class="tip">{{ status_text }}</span></span>
-{%- endif %}
+{%- if status_text.size > 0 %}<span class="status is-{{ s.status }}" aria-hidden="true"></span>{%- endif %}
 </div>
-<h1>{{ s.name }}</h1>
-<p class="tagline">{{ s.tagline }}</p>
-{%- if s.bio.size > 0 %}
-<p class="bio" dir="auto">{{ s.bio }}</p>
-{%- endif %}
+<h1 class="hero-name">{{ s.nameFa | default: s.name }}</h1>
+<p class="hero-tags">{%- for t in tags %}<span class="tag t{{ forloop.index }}">{{ t | strip }}</span>{%- endfor %}</p>
+{%- if s.bio.size > 0 %}<p class="bio" dir="auto">{{ s.bio }}</p>{%- endif %}
 {% include socials.html email=true %}
-<nav class="counts" aria-label="Sections">
-{%- if projects.size > 0 %}<a class="count" href="/projects/"><span>Projects</span><b>{{ projects.size }}</b></a>{%- endif %}
-{%- if companies.size > 0 %}<a class="count" href="#experience"><span>Companies</span><b>{{ companies.size }}</b></a>{%- endif %}
-{%- if posts.size > 0 %}<a class="count" href="/blog/"><span>Posts</span><b>{{ posts.size }}</b></a>{%- endif %}
-{%- if products.size > 0 %}<a class="count" href="#built"><span>Built</span><b>{{ products.size }}</b></a>{%- endif %}
-</nav>
+<dl class="facts">
+<div><dt>شهر</dt><dd>{{ s.city }}</dd></div>
+<div><dt>ساعت محلی</dt><dd data-tz="{{ s.timezone | default: 'Asia/Tehran' }}">--:--</dd></div>
+<div><dt>وضعیت</dt><dd class="fact-status is-{{ s.status }}"><i></i>{{ status_text }}</dd></div>
+</dl>
 </header>
-<hr class="rule">
 {%- assign n = 0 -%}
 {%- if companies.size > 0 %}
 {%- assign n = n | plus: 1 -%}
 {%- assign cn = companies.size -%}
 {%- if cn > 6 -%}{%- assign cn = 6 -%}{%- endif %}
 <section class="block" id="experience">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Companies</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>شرکت‌ها</h2></div>
 <div class="logos" style="--n: {{ cn }}">
 {%- for c in companies %}
 <a class="logo-tile" href="{{ c.url }}" title="{{ c.title }}" aria-label="{{ c.title }}">
@@ -51,7 +47,7 @@ title: Arman Haghshenas — Logo and brand designer
 {%- if projects.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="projects">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Projects</h2><a class="more" href="/projects/">View all</a></div>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>پروژه‌ها</h2><a class="more" href="/projects/">همه‌ی پروژه‌ها</a></div>
 <div class="grid">
 {%- for p in projects limit: site.home_projects %}
 {% include card.html href=p.link title=p.title category=p.category cover=p.cover eager=forloop.first %}
@@ -62,7 +58,7 @@ title: Arman Haghshenas — Logo and brand designer
 {%- if products.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="built">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Things I’ve built</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>چیزهایی که ساخته‌ام</h2></div>
 <div class="products">
 {%- for p in products %}
 {%- if p.link.size > 0 -%}
@@ -86,25 +82,23 @@ title: Arman Haghshenas — Logo and brand designer
 {%- if posts.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="blog">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Blog</h2><a class="more" href="/blog/">View all</a></div>
-<ul class="plist">
-{%- for p in posts limit: 5 %}
-<li><a class="prow" href="{{ p.url }}"><span class="ptitle" dir="auto">{{ p.title }}</span><time>{{ p.date | date: "%y/%m/%d" }}</time></a></li>
-{%- endfor %}
-</ul>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>وبلاگ</h2><a class="more" href="/blog/">همه‌ی نوشته‌ها</a></div>
+<div class="plist">
+{%- for p in posts limit: 4 %}{% include post.html p=p %}{%- endfor %}
+</div>
 </section>
 {%- endif %}
 {%- if music.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="music">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>On rotation</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>این روزها گوش می‌دهم</h2></div>
 {% include shelf.html items=music kind="music" %}
 </section>
 {%- endif %}
 {%- if books.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="books">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Books I love</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">۰{{ fa[n] }}</span>کتاب‌های محبوبم</h2></div>
 {% include shelf.html items=books kind="books" %}
 </section>
 {%- endif %}
