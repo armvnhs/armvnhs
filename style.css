@@ -740,17 +740,6 @@ div.product .product-bottom { display: none; }
 .count:hover { border-color: var(--ink); transform: translateY(-2px); }
 .section-title { display: flex; align-items: baseline; gap: 12px; }
 .num { font-size: .78rem; font-weight: 500; letter-spacing: .06em; color: #a3a3a3; font-variant-numeric: tabular-nums; }
-.xp { list-style: none; padding: 0; border-top: 1px solid var(--line); }
-.xp li { border-bottom: 1px solid var(--line); }
-.xp-row { display: flex; align-items: center; gap: 16px; padding: 16px 4px; text-decoration: none; transition: padding .5s var(--ease), background .3s; }
-.xp-row:hover { padding-inline: 14px; background: #fafafa; }
-.xp-logo { display: grid; place-items: center; flex: none; width: 44px; height: 44px; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-.xp-logo img { width: 100%; height: 100%; padding: 6px; object-fit: contain; }
-.xp-logo b { font-family: var(--display); font-weight: 600; }
-.xp-text { display: flex; flex: 1; flex-direction: column; gap: 2px; min-width: 0; }
-.xp-text b { font-family: var(--display); font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; }
-.xp-text small { font-size: .88rem; color: var(--muted); }
-.xp-period { font-size: .9rem; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; }
 .shelf { display: flex; gap: 16px; margin-inline: -20px; padding: 6px 20px 18px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
 .shelf::-webkit-scrollbar { display: none; }
 .shelf-item { display: flex; flex: none; flex-direction: column; gap: 4px; width: 128px; text-decoration: none; scroll-snap-align: start; }
@@ -780,3 +769,16 @@ a.shelf-item:hover .shelf-cover { transform: translateY(-4px) rotate(-1deg); box
 @media (max-width: 620px) {
   .foot-meta { flex-direction: column; align-items: flex-start; }
 }
+
+.logo-tile img, .logo-tile span { filter: grayscale(1); opacity: .55; transition: filter .45s var(--ease), opacity .45s var(--ease); }
+.logo-tile:hover img, .logo-tile:hover span, .logo-tile:focus-visible img, .logo-tile:focus-visible span { filter: none; opacity: 1; }
+@media (hover: none) { .logo-tile img, .logo-tile span { filter: none; opacity: 1; } }
+.nav.dock { gap: 2px; padding: 6px; max-width: calc(100vw - 24px); }
+.nav.dock a, .nav.dock a.active, .nav.dock a.active:hover { gap: 8px; height: 44px; padding: 0 14px; font-size: .92rem; font-weight: 500; white-space: nowrap; }
+.nav.dock .label, .nav.dock a.active .label { display: inline; max-width: none; margin: 0; opacity: 1; }
+.nav.dock .dock-avatar { width: 44px; padding: 0; justify-content: center; }
+.nav.dock .dock-avatar img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: #eee; }
+.nav.dock kbd { display: inline-grid; place-items: center; min-width: 17px; height: 17px; padding: 0 4px; border-radius: 5px; background: rgba(0, 0, 0, .07); font: 600 .62rem/1 var(--text); color: inherit; opacity: .7; }
+.nav.dock a.active kbd { background: rgba(255, 255, 255, .22); }
+.nav.dock .keys { display: inline-flex; gap: 2px; }
+@media (hover: none), (max-width: 620px) { .nav.dock .keys { display: none; } .nav.dock a { padding: 0 12px; } }

@@ -43,10 +43,12 @@
 <main class="wrap">
 {{ content }}
 </main>
-<nav class="nav" aria-label="Main">
-<a href="/" aria-label="Home" data-key="h"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}<span class="label">Home</span></a>
-<a href="/resume/" aria-label="Resume" data-key="r"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}<span class="label">Resume</span></a>
-<a href="/contact/" aria-label="Contact" data-key="c"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}<span class="label">Contact</span></a>
+<nav class="nav dock" aria-label="Main">
+<a class="dock-avatar" href="/" aria-label="Home"><img src="{{ site.data.site.avatar | uri_escape }}" alt="" width="34" height="34"></a>
+<a href="/" data-key="h"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}><span class="label">Home</span><span class="keys"><kbd>G</kbd><kbd>H</kbd></span></a>
+<a href="/projects/" data-key="j"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}><span class="label">Projects</span><span class="keys"><kbd>G</kbd><kbd>J</kbd></span></a>
+<a href="/resume/" data-key="r"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}><span class="label">Resume</span><span class="keys"><kbd>G</kbd><kbd>R</kbd></span></a>
+<a href="/contact/" data-key="c"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}><span class="label">Contact</span><span class="keys"><kbd>G</kbd><kbd>C</kbd></span></a>
 </nav>
 <script>
 (function(){
