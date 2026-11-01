@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -35,7 +35,7 @@
 <link rel="apple-touch-icon" href="{{ fav | uri_escape }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&amp;family=Vazirmatn:wght@100..900&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&amp;display=swap">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -44,11 +44,11 @@
 {{ content }}
 </main>
 <nav class="nav dock" aria-label="Main">
-<a href="/" title="خانه" aria-label="خانه"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}</a>
-<a href="/projects/" title="پروژه‌ها" aria-label="پروژه‌ها"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="briefcase" %}</a>
-<a href="/blog/" title="وبلاگ" aria-label="وبلاگ"{% if page.nav == 'blog' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="pencil" %}</a>
-<a href="/resume/" title="رزومه" aria-label="رزومه"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}</a>
-<a href="/contact/" title="ارتباط" aria-label="ارتباط"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}</a>
+<a href="/" title="Home" aria-label="Home"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}</a>
+<a href="/projects/" title="Projects" aria-label="Projects"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="briefcase" %}</a>
+<a href="/blog/" title="Blog" aria-label="Blog"{% if page.nav == 'blog' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="pencil" %}</a>
+<a href="/resume/" title="Resume" aria-label="Resume"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}</a>
+<a href="/contact/" title="Contact" aria-label="Contact"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}</a>
 </nav>
 <script>
 (function(){
@@ -61,16 +61,8 @@
 </script>
 <script>
 (function(){
-  var z=document.querySelectorAll("[data-tz]");
-  z.forEach(function(c){
-    var f=new Intl.DateTimeFormat("fa-IR",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:c.dataset.tz});
-    var t=function(){c.textContent=f.format(new Date())};
-    t();setInterval(t,15000);
-  });
-  var df=new Intl.DateTimeFormat("fa-IR",{year:"numeric",month:"long",day:"numeric"});
+  var df=new Intl.DateTimeFormat("en-US",{year:"numeric",month:"short",day:"numeric"});
   document.querySelectorAll("time[datetime]").forEach(function(e){var d=new Date(e.getAttribute("datetime"));if(!isNaN(d))e.textContent=df.format(d)});
-  var y=document.querySelector("[data-year]");
-  if(y)y.textContent=new Intl.DateTimeFormat("fa-IR",{year:"numeric"}).format(new Date());
 })();
 </script>
 </body>

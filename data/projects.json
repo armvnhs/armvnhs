@@ -2,23 +2,23 @@
   "items": [
     {
       "title": "Isfahan Core",
-      "category": "استیکر",
+      "category": "Sticker",
       "cover": "/assets/img/Projects/isfahan-core.avif",
       "link": "https://armvnhs.ir/"
     },
     {
       "title": "Lady Tel",
-      "category": "طراحی لوگو",
+      "category": "Logo Design",
       "cover": "/assets/img/Projects/lady-tel.avif"
     },
     {
       "title": "Hidway",
-      "category": "هویت بصری",
+      "category": "Brand Identity",
       "cover": "/assets/img/Projects/hidway.avif"
     },
     {
       "title": "lolo",
-      "category": "طراحی",
+      "category": "Design",
       "cover": "/assets/img/cover1-1.avif",
       "link": "http://google.com/"
     }

@@ -4,8 +4,8 @@ url: https://armvnhs.ir
 data_dir: data
 home_projects: 6
 status_labels:
-  available: آماده‌ی پروژه‌ی تازه
-  busy: فعلاً سرم شلوغه
+  available: Available for new projects
+  busy: Busy right now
 plugins:
   - jekyll-sitemap
   - jekyll-feed

@@ -1,34 +1,34 @@
 ---
 layout: default
 nav: contact
-title: ارتباط — Arman Haghshenas
+title: Contact — Arman Haghshenas
 ---
 {%- assign s = site.data.site -%}
 {%- assign tg = s.telegram | remove: 'https://' | remove: 'http://' | remove: 't.me/' | remove: '@' -%}
 {%- assign phone = s.phone -%}
 {%- assign wa = s.whatsapp | default: phone | remove: '+' | remove: ' ' | remove: '-' -%}
 {%- assign fa = "۰,۱,۲,۳,۴,۵,۶,۷,۸,۹" | split: "," -%}
-<a class="back" href="/">→ خانه</a>
+<a class="back" href="/">← Home</a>
 <div class="page-head">
-<h1 class="page-title">بیا حرف بزنیم</h1>
+<h1 class="page-title">Let’s talk</h1>
 <p class="page-lead">{{ s.contactText }}</p>
 </div>
 <section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">۰۱</span>راه‌های ارتباطی</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">01</span>Ways to reach me</h2></div>
 <ul class="clist">
-{%- if s.email.size > 0 %}<li><a class="crow" href="mailto:{{ s.email }}"><span class="ci">{% include icon.html name="mail" %}</span><span class="cm"><b>ایمیل</b><small dir="ltr">{{ s.email }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
-{%- if tg.size > 0 %}<li><a class="crow" href="https://t.me/{{ tg }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-telegram" %}</span><span class="cm"><b>تلگرام</b><small dir="ltr">@{{ tg }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
-{%- if wa.size > 0 %}<li><a class="crow" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-whatsapp" %}</span><span class="cm"><b>واتساپ</b><small dir="ltr">+{{ wa }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
-{%- if phone.size > 0 %}<li><a class="crow" href="tel:{{ phone }}"><span class="ci">{% include icon.html name="phone" %}</span><span class="cm"><b>تماس</b><small dir="ltr">{{ phone }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if s.email.size > 0 %}<li><a class="crow" href="mailto:{{ s.email }}"><span class="ci">{% include icon.html name="mail" %}</span><span class="cm"><b>Email</b><small dir="ltr">{{ s.email }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if tg.size > 0 %}<li><a class="crow" href="https://t.me/{{ tg }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-telegram" %}</span><span class="cm"><b>Telegram</b><small dir="ltr">@{{ tg }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if wa.size > 0 %}<li><a class="crow" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener"><span class="ci">{% include icon.html name="brand-whatsapp" %}</span><span class="cm"><b>WhatsApp</b><small dir="ltr">+{{ wa }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
+{%- if phone.size > 0 %}<li><a class="crow" href="tel:{{ phone }}"><span class="ci">{% include icon.html name="phone" %}</span><span class="cm"><b>Phone</b><small dir="ltr">{{ phone }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
 </ul>
 </section>
 <section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">۰۲</span>پیام بگذار</h2></div>
+<div class="section-head"><h2 class="section-title"><span class="num">02</span>Send a message</h2></div>
 <form class="cf" id="cf" data-endpoint="{% if s.formEndpoint contains 'http' %}{{ s.formEndpoint }}{% endif %}" data-mail="{{ s.email }}">
-<label><span>نام</span><input name="name" required dir="auto" autocomplete="name"></label>
-<label><span>ایمیل یا شماره‌ی تماس</span><input name="contact" required dir="ltr" autocomplete="off"></label>
-<label><span>درباره‌ی پروژه</span><textarea name="message" rows="5" required dir="auto"></textarea></label>
-<button class="btn" type="submit">ارسال پیام<span class="arrow">{% include icon.html name="send" %}</span></button>
+<label><span>Name</span><input name="name" required dir="auto" autocomplete="name"></label>
+<label><span>Email or phone</span><input name="contact" required dir="ltr" autocomplete="off"></label>
+<label><span>About your project</span><textarea name="message" rows="5" required dir="auto"></textarea></label>
+<button class="btn" type="submit">Send message<span class="arrow">{% include icon.html name="send" %}</span></button>
 <p class="cf-note" role="status" aria-live="polite"></p>
 </form>
 </section>
@@ -42,11 +42,11 @@ title: ارتباط — Arman Haghshenas
     var fd=new FormData(f),ep=f.dataset.endpoint;
     if(ep){
       fetch(ep,{method:"POST",body:fd,headers:{Accept:"application/json"}}).then(function(r){
-        if(!r.ok)throw 0;f.reset();note.textContent="پیامت رسید. به‌زودی جواب می‌دهم."
-      }).catch(function(){note.textContent="ارسال نشد. از یکی از راه‌های بالا پیام بده."});
+        if(!r.ok)throw 0;f.reset();note.textContent="Got it. I’ll reply soon."
+      }).catch(function(){note.textContent="That didn’t go through. Please use one of the options above."});
     }else{
       var body=fd.get("message")+"\n\n"+fd.get("name")+" — "+fd.get("contact");
-      location.href="mailto:"+f.dataset.mail+"?subject="+encodeURIComponent("پروژه از طرف "+fd.get("name"))+"&body="+encodeURIComponent(body);
+      location.href="mailto:"+f.dataset.mail+"?subject="+encodeURIComponent("Project inquiry from "+fd.get("name"))+"&body="+encodeURIComponent(body);
     }
   });
 })();
