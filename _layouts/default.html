@@ -44,9 +44,9 @@
 {{ content }}
 </main>
 <nav class="nav" aria-label="Main">
-<a href="/" aria-label="Home"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}<span class="label">Home</span></a>
-<a href="/resume/" aria-label="Resume"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}<span class="label">Resume</span></a>
-<a href="/contact/" aria-label="Contact"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}<span class="label">Contact</span></a>
+<a href="/" aria-label="Home" data-key="h"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}<span class="label">Home</span></a>
+<a href="/resume/" aria-label="Resume" data-key="r"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}<span class="label">Resume</span></a>
+<a href="/contact/" aria-label="Contact" data-key="c"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}<span class="label">Contact</span></a>
 </nav>
 <script>
 (function(){
@@ -54,6 +54,27 @@
   document.querySelectorAll("img").forEach(function(e){
     if(e.complete){ok(e)}
     else{e.addEventListener("load",function(){ok(e)},{once:true});e.addEventListener("error",function(){ok(e)},{once:true})}
+  });
+})();
+</script>
+<script>
+(function(){
+  var c=document.querySelector(".foot-clock");
+  if(c){
+    var f=new Intl.DateTimeFormat("en-GB",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:c.dataset.tz});
+    var t=function(){c.textContent=f.format(new Date())};
+    t();setInterval(t,15000);
+  }
+  var armed=false,timer;
+  document.addEventListener("keydown",function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var el=e.target,tag=el.tagName;
+    if(tag==="INPUT"||tag==="TEXTAREA"||el.isContentEditable)return;
+    var k=e.key.toLowerCase();
+    if(!armed){if(k==="g"){armed=true;clearTimeout(timer);timer=setTimeout(function(){armed=false},900)}return}
+    armed=false;
+    var a=document.querySelector('.nav a[data-key="'+k+'"]');
+    if(a){e.preventDefault();location.href=a.href}
   });
 })();
 </script>

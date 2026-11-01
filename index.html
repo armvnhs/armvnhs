@@ -8,6 +8,8 @@ title: Arman Haghshenas — Logo and brand designer
 {%- assign projects = site.data.projects.items -%}
 {%- assign companies = site.companies | sort: 'order' -%}
 {%- assign products = site.data.products.items -%}
+{%- assign music = site.data.music.items -%}
+{%- assign books = site.data.books.items -%}
 <header class="hero">
 <div class="avatar-wrap">
 <img class="avatar" src="{{ s.avatar | uri_escape }}" alt="{{ s.name }}" width="92" height="92" fetchpriority="high" decoding="async">
@@ -17,15 +19,37 @@ title: Arman Haghshenas — Logo and brand designer
 </div>
 <h1>{{ s.name }}</h1>
 <p class="tagline">{{ s.tagline }}</p>
+{%- if s.bio.size > 0 %}
+<p class="bio" dir="auto">{{ s.bio }}</p>
+{%- endif %}
 {% include socials.html email=true %}
+<nav class="counts" aria-label="Sections">
+{%- if projects.size > 0 %}<a class="count" href="/projects/"><span>Projects</span><b>{{ projects.size }}</b></a>{%- endif %}
+{%- if companies.size > 0 %}<a class="count" href="#experience"><span>Companies</span><b>{{ companies.size }}</b></a>{%- endif %}
+{%- if products.size > 0 %}<a class="count" href="#built"><span>Built</span><b>{{ products.size }}</b></a>{%- endif %}
+</nav>
 </header>
 <hr class="rule">
+{%- assign n = 0 -%}
+{%- if companies.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="experience">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Experience</h2></div>
+<ul class="xp">
+{%- for c in companies %}
+<li><a class="xp-row" href="{{ c.url }}">
+<span class="xp-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span>
+<span class="xp-text"><b>{{ c.title }}</b>{%- if c.role.size > 0 -%}<small>{{ c.role }}</small>{%- endif -%}</span>
+{%- if c.period.size > 0 -%}<span class="xp-period">{{ c.period }}</span>{%- endif -%}
+</a></li>
+{%- endfor %}
+</ul>
+</section>
+{%- endif %}
 {%- if projects.size > 0 %}
-<section class="block">
-<div class="section-head">
-<h2 class="section-title">Projects</h2>
-<a class="more" href="/projects/">View more</a>
-</div>
+{%- assign n = n | plus: 1 %}
+<section class="block" id="projects">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Projects</h2><a class="more" href="/projects/">View all</a></div>
 <div class="grid">
 {%- for p in projects limit: site.home_projects %}
 {% include card.html href=p.link title=p.title category=p.category cover=p.cover eager=forloop.first %}
@@ -33,23 +57,10 @@ title: Arman Haghshenas — Logo and brand designer
 </div>
 </section>
 {%- endif %}
-{%- if companies.size > 0 %}
-{%- assign n = companies.size -%}
-{%- if n > 6 -%}{%- assign n = 6 -%}{%- endif %}
-<section class="block">
-<h2 class="section-title">Companies</h2>
-<div class="logos" style="--n: {{ n }}">
-{%- for c in companies %}
-<a class="logo-tile" href="{{ c.url }}" title="{{ c.title }}" aria-label="{{ c.title }}">
-{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="{{ c.title }}" loading="lazy">{%- else -%}<span>{{ c.title }}</span>{%- endif -%}
-</a>
-{%- endfor %}
-</div>
-</section>
-{%- endif %}
 {%- if products.size > 0 %}
-<section class="block">
-<h2 class="section-title">Things I’ve built</h2>
+{%- assign n = n | plus: 1 %}
+<section class="block" id="built">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Things I’ve built</h2></div>
 <div class="products">
 {%- for p in products %}
 {%- if p.link.size > 0 -%}
@@ -70,3 +81,18 @@ title: Arman Haghshenas — Logo and brand designer
 </div>
 </section>
 {%- endif %}
+{%- if music.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="music">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>On rotation</h2></div>
+{% include shelf.html items=music kind="music" %}
+</section>
+{%- endif %}
+{%- if books.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="books">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Books I love</h2></div>
+{% include shelf.html items=books kind="books" %}
+</section>
+{%- endif %}
+{% include footer.html %}

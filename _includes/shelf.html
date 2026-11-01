@@ -1,0 +1,9 @@
+<div class="shelf is-{{ include.kind }}">
+{%- for i in include.items %}
+{%- if i.link.size > 0 -%}<a class="shelf-item" href="{{ i.link }}" target="_blank" rel="noopener">{%- else -%}<div class="shelf-item">{%- endif -%}
+<span class="shelf-cover">{%- if i.cover.size > 0 -%}<img src="{{ i.cover | uri_escape }}" alt="" loading="lazy" decoding="async">{%- else -%}<b>{{ i.title | slice: 0 | upcase }}</b>{%- endif -%}</span>
+<span class="shelf-title" dir="auto">{{ i.title }}</span>
+{%- if i.by.size > 0 -%}<span class="shelf-by" dir="auto">{{ i.by }}</span>{%- endif -%}
+{%- if i.link.size > 0 -%}</a>{%- else -%}</div>{%- endif -%}
+{%- endfor %}
+</div>
