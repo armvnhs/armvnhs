@@ -252,3 +252,30 @@ content:
           - name: link
             label: Link
             type: string
+  - name: posts
+    label: Blog
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    view:
+      fields:
+        - title
+        - date
+      primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: summary
+        label: Summary
+        type: text
+      - name: cover
+        label: Cover
+        type: image
+      - name: body
+        label: Content
+        type: rich-text
