@@ -55,6 +55,18 @@ content:
       - name: formEndpoint
         label: Form endpoint
         type: string
+      - name: bio
+        label: Bio
+        type: text
+      - name: city
+        label: City
+        type: string
+      - name: timezone
+        label: Timezone
+        type: string
+      - name: coords
+        label: Coordinates
+        type: string
       - name: contactText
         label: Contact text
         type: string
@@ -111,6 +123,12 @@ content:
       - name: order
         label: Order
         type: number
+      - name: role
+        label: Role
+        type: string
+      - name: period
+        label: Period
+        type: string
       - name: logo
         label: Logo
         type: image
@@ -192,82 +210,13 @@ content:
         label: Skills
         type: string
         list: true
-
-  - name: files
-    label: Files
-    input: assets/files
-    output: /assets/files
-content:
-  - name: profile
-    label: Profile
+  - name: music
+    label: Music
     type: file
-    path: data/site.json
-    fields:
-      - name: name
-        label: Name
-        type: string
-      - name: tagline
-        label: Tagline
-        type: string
-      - name: avatar
-        label: Photo
-        type: image
-      - name: ogImage
-        label: Link preview image
-        type: image
-      - name: chatAvatar
-        label: Chat photo
-        type: image
-      - name: favicon
-        label: Favicon
-        type: image
-      - name: status
-        label: Status
-        type: select
-        options:
-          values:
-            - value: available
-              label: Available
-            - value: busy
-              label: Busy
-      - name: email
-        label: Email
-        type: string
-      - name: telegram
-        label: Telegram
-        type: string
-      - name: phone
-        label: Phone
-        type: string
-      - name: whatsapp
-        label: WhatsApp
-        type: string
-      - name: formEndpoint
-        label: Form endpoint
-        type: string
-      - name: contactText
-        label: Contact text
-        type: string
-      - name: social
-        label: Social links
-        type: object
-        list:
-          collapsible:
-            summary: "{label}"
-        fields:
-          - name: label
-            label: Label
-            type: string
-          - name: url
-            label: URL
-            type: string
-  - name: projects
-    label: Projects
-    type: file
-    path: data/projects.json
+    path: data/music.json
     fields:
       - name: items
-        label: Projects
+        label: Music
         type: object
         list:
           collapsible:
@@ -276,8 +225,8 @@ content:
           - name: title
             label: Title
             type: string
-          - name: category
-            label: Category
+          - name: by
+            label: Artist
             type: string
           - name: cover
             label: Cover
@@ -285,100 +234,27 @@ content:
           - name: link
             label: Link
             type: string
-  - name: companies
-    label: Companies
-    type: collection
-    path: _companies
-    format: yaml-frontmatter
-    view:
-      fields:
-        - title
-      primary: title
-    fields:
-      - name: title
-        label: Name
-        type: string
-      - name: order
-        label: Order
-        type: number
-      - name: logo
-        label: Logo
-        type: image
-      - name: body
-        label: Content
-        type: rich-text
-  - name: products
-    label: Products
+  - name: books
+    label: Books
     type: file
-    path: data/products.json
+    path: data/books.json
     fields:
       - name: items
-        label: Products
+        label: Books
         type: object
         list:
           collapsible:
-            summary: "{name}"
+            summary: "{title}"
         fields:
-          - name: name
-            label: Name
+          - name: title
+            label: Title
             type: string
-          - name: description
-            label: Description
+          - name: by
+            label: Author
             type: string
-          - name: logo
-            label: Logo
+          - name: cover
+            label: Cover
             type: image
           - name: link
             label: Link
             type: string
-  - name: software
-    label: Software
-    type: file
-    path: data/software.json
-    fields:
-      - name: items
-        label: Software
-        type: object
-        list:
-          collapsible:
-            summary: "{name}"
-        fields:
-          - name: name
-            label: Name
-            type: string
-          - name: icon
-            label: Icon
-            type: image
-  - name: resume
-    label: Resume
-    type: file
-    path: data/resume.json
-    fields:
-      - name: summary
-        label: Summary
-        type: text
-      - name: pdf
-        label: PDF
-        type: file
-        options:
-          media: files
-      - name: education
-        label: Education
-        type: object
-        list:
-          collapsible:
-            summary: "{school}"
-        fields:
-          - name: school
-            label: School
-            type: string
-          - name: degree
-            label: Degree
-            type: string
-          - name: period
-            label: Period
-            type: string
-      - name: skills
-        label: Skills
-        type: string
-        list: true
