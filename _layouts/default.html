@@ -44,11 +44,12 @@
 {{ content }}
 </main>
 <nav class="nav dock" aria-label="Main">
-<a href="/" title="Home" aria-label="Home"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="home" %}</a>
-<a href="/projects/" title="Projects" aria-label="Projects"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="briefcase" %}</a>
-<a href="/blog/" title="Blog" aria-label="Blog"{% if page.nav == 'blog' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="pencil" %}</a>
-<a href="/resume/" title="Resume" aria-label="Resume"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="file-text" %}</a>
-<a href="/contact/" title="Contact" aria-label="Contact"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include icon.html name="mail" %}</a>
+<a href="/" data-tip="Home" aria-label="Home"{% if page.nav == 'work' %} class="active" aria-current="page"{% endif %}>{% include dock-icon.html name="home" %}</a>
+<a href="/projects/" data-tip="Projects" aria-label="Projects"{% if page.nav == 'projects' %} class="active" aria-current="page"{% endif %}>{% include dock-icon.html name="projects" %}</a>
+<a href="/blog/" data-tip="Blog" aria-label="Blog"{% if page.nav == 'blog' %} class="active" aria-current="page"{% endif %}>{% include dock-icon.html name="blog" %}</a>
+<a href="/resume/" data-tip="Resume" aria-label="Resume"{% if page.nav == 'resume' %} class="active" aria-current="page"{% endif %}>{% include dock-icon.html name="resume" %}</a>
+<span class="dock-sep" aria-hidden="true"></span>
+<a href="/contact/" data-tip="Contact" aria-label="Contact"{% if page.nav == 'contact' %} class="active" aria-current="page"{% endif %}>{% include dock-icon.html name="contact" %}</a>
 </nav>
 <script>
 (function(){
