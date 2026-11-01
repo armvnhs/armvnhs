@@ -123,12 +123,6 @@ content:
       - name: order
         label: Order
         type: number
-      - name: role
-        label: Role
-        type: string
-      - name: period
-        label: Period
-        type: string
       - name: logo
         label: Logo
         type: image
