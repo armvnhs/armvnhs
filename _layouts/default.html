@@ -73,7 +73,7 @@
   };
   addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
   upd();
-  var els=document.querySelectorAll(".block,.hero > *,.foot");
+  var els=document.querySelectorAll(".block,.hero > *,.foot,.tl li,.rs-stats");
   els.forEach(function(e,n){e.classList.add("rv");e.style.setProperty("--d",(e.parentNode.classList.contains("hero")?n*0.07:0)+"s")});
   if("IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});
@@ -86,6 +86,28 @@
       try{localStorage.setItem("lang",fa?"fa":"en")}catch(e){}
     });
   });
+  document.querySelectorAll(".card").forEach(function(c){
+    c.addEventListener("pointermove",function(e){
+      if(e.pointerType!=="mouse")return;
+      var r=c.getBoundingClientRect();
+      c.style.setProperty("--ry",(((e.clientX-r.left)/r.width-.5)*10)+"deg");
+      c.style.setProperty("--rx",(-((e.clientY-r.top)/r.height-.5)*10)+"deg");
+    });
+    c.addEventListener("pointerleave",function(){c.style.removeProperty("--rx");c.style.removeProperty("--ry")});
+  });
+  var cu=document.querySelectorAll("[data-count]");
+  if(cu.length&&"IntersectionObserver" in window){
+    var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var co=new IntersectionObserver(function(es){es.forEach(function(x){
+      if(!x.isIntersecting)return;
+      var el=x.target,to=+el.dataset.count,suf=el.dataset.suffix||"",t0=null;
+      co.unobserve(el);
+      if(still){el.textContent=to+suf;return}
+      var step=function(t){t0=t0||t;var p=Math.min((t-t0)/1100,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)};
+      requestAnimationFrame(step);
+    })},{threshold:.6});
+    cu.forEach(function(e){co.observe(e)});
+  }else cu.forEach(function(e){e.textContent=e.dataset.count+(e.dataset.suffix||"")});
   var df=new Intl.DateTimeFormat("en-US",{year:"numeric",month:"short",day:"numeric"});
   document.querySelectorAll("time[datetime]").forEach(function(e){var d=new Date(e.getAttribute("datetime"));if(!isNaN(d))e.textContent=df.format(d)});
 })();

@@ -984,3 +984,52 @@ html[data-lang="fa"] .fa { display: block; }
 .nav.dock a:hover { transform: none; }
 @media (hover: hover) { .nav.dock a:hover { color: var(--ink); transform: translateY(-2px); } }
 @media (hover: none) { .nav.dock a:hover { color: #8a8a8a; } .nav.dock a.active:hover { color: var(--ink); } }
+
+.hero .hero-name { margin-top: -6px; }
+.hero-role { margin-top: 10px; font-size: 1.02rem; font-weight: 500; color: var(--muted); }
+.hero-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 28px; margin-top: 28px; }
+.hero-row .socials { margin: 0; }
+.hero-meta { display: inline-flex; align-items: center; gap: 10px; font-size: .92rem; font-weight: 500; color: #3a3a3a; }
+.hero-pill { display: none; }
+.pill-sep { width: 1px; height: 14px; background: #d4d4d4; }
+@media (min-width: 621px) { .logos { justify-content: center; } }
+.foot, .foot * { text-align: start; }
+.lang-toggle { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; }
+.lang-toggle svg { width: 18px; height: 18px; }
+html[data-lang="fa"] .lang-toggle { border-color: var(--ink); background: var(--ink); color: #fff; }
+.product-text, .product-name, .product-desc { text-align: start; }
+.card .card-title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.card .arrow { width: 30px; height: 30px; }
+.card .arrow svg { width: 15px; height: 15px; }
+@media (hover: hover) {
+  .card { transition: transform .25s ease-out; }
+  .card:hover { transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); }
+}
+.rs-head { margin: 24px 0 36px; }
+.rs-kicker { margin-bottom: 14px; font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #a3a3a3; }
+.rs-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
+.rs-stats > div { display: flex; flex-direction: column; gap: 4px; padding: 22px 0; }
+.rs-stats > div + div { padding-inline-start: 22px; border-inline-start: 1px solid var(--line); }
+.rs-stats b { font-size: 2rem; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.rs-stats span { font-size: .82rem; font-weight: 500; color: var(--muted); }
+.tl { position: relative; padding: 0; list-style: none; }
+.tl::before { content: ""; position: absolute; top: 14px; bottom: 14px; left: 7px; width: 1px; background: var(--line); }
+.tl li { position: relative; padding-left: 40px; }
+.tl li + li { margin-top: 12px; }
+.tl li::before { content: ""; position: absolute; top: 50%; left: 2px; width: 11px; height: 11px; margin-top: -5.5px; border: 2px solid var(--ink); border-radius: 50%; background: #fff; transition: background .4s; }
+.tl li:hover::before { background: var(--ink); }
+.tl-card { display: flex; align-items: center; gap: 16px; padding: 12px 16px 12px 12px; border: 1px solid var(--line); border-radius: 20px; background: #fafafa; text-decoration: none; transition: border-color .3s, transform .5s var(--ease); }
+.tl-card:hover { border-color: var(--ink); transform: translateX(4px); }
+.tl-logo { display: grid; place-items: center; flex: none; width: 56px; height: 56px; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .06); }
+.tl-logo img { width: 100%; height: 100%; padding: 8px; object-fit: contain; filter: grayscale(1); opacity: .6; transition: filter .4s, opacity .4s; }
+.tl-card:hover .tl-logo img { filter: none; opacity: 1; }
+.tl-name { flex: 1; font-size: 1.02rem; font-weight: 600; }
+.tl-go .arrow, .tl-go svg { width: 18px; height: 18px; opacity: .5; }
+.marquee { overflow: hidden; margin-inline: -20px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.mq-track { display: flex; gap: 12px; width: max-content; padding-inline: 6px; animation: mq 36s linear infinite; }
+.marquee.is-rev .mq-track { animation-direction: reverse; animation-duration: 44s; }
+.marquee:hover .mq-track { animation-play-state: paused; }
+@keyframes mq { to { transform: translateX(-50%); } }
+.mq-app, .mq-chip { display: inline-flex; align-items: center; gap: 10px; flex: none; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: #fafafa; font-size: .95rem; font-weight: 600; white-space: nowrap; }
+.mq-app img { width: 26px; height: 26px; object-fit: contain; }
+@media (prefers-reduced-motion: reduce) { .mq-track { animation: none; } .marquee { overflow-x: auto; } }

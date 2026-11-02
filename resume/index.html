@@ -4,33 +4,49 @@ nav: resume
 title: Resume — Arman Haghshenas
 ---
 {%- assign r = site.data.resume -%}
-{%- assign fa = "۰,۱,۲,۳,۴,۵,۶,۷,۸,۹" | split: "," -%}
 {%- assign cos = site.companies | sort: 'order' -%}
 {%- assign n = 0 -%}
 <a class="back" href="/">← Home</a>
-<div class="page-head">
-<h1 class="page-title">Resume</h1>
+<header class="rs-head">
+<p class="rs-kicker">Resume</p>
+<h1 class="page-title">{{ site.data.site.name }}</h1>
 {%- if r.summary.size > 0 %}<p class="page-lead" dir="auto">{{ r.summary }}</p>{%- endif %}
 {%- if r.pdf.size > 0 %}<a class="btn" href="{{ r.pdf | uri_escape }}" target="_blank" rel="noopener" download>Download PDF<span class="arrow">{% include icon.html name="download" %}</span></a>{%- endif %}
+</header>
+<div class="rs-stats">
+<div><b data-count="{{ r.years | default: 4 }}" data-suffix="+">0</b><span>Years of experience</span></div>
+<div><b data-count="{{ cos.size }}">0</b><span>Companies</span></div>
+<div><b data-count="{{ site.data.projects.items.size }}">0</b><span>Selected projects</span></div>
 </div>
 {%- if cos.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Collaborated with</h2></div>
-<div class="logos" style="--n: {{ cos.size | at_most: 6 }}">
-{%- for c in cos %}<a class="logo-tile" href="{{ c.url }}" title="{{ c.title }}" aria-label="{{ c.title }}">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="{{ c.title }}" loading="lazy">{%- else -%}<span>{{ c.title }}</span>{%- endif -%}</a>{%- endfor %}
-</div>
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Experience</h2></div>
+<ol class="tl">
+{%- for c in cos %}
+<li><a class="tl-card" href="{{ c.url }}"><span class="tl-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span><span class="tl-name">{{ c.title }}</span><span class="tl-go">{% include arrow.html %}</span></a></li>
+{%- endfor %}
+</ol>
 </section>
 {%- endif %}
 {%- if site.data.software.items.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Software</h2></div>
-<ul class="apps">
-{%- for t in site.data.software.items %}
-<li class="app"><span class="app-icon">{%- if t.icon.size > 0 -%}<img src="{{ t.icon | uri_escape }}" alt="" width="52" height="52" loading="lazy">{%- else -%}<b>{{ t.name | slice: 0 }}</b>{%- endif -%}</span><span class="app-name">{{ t.name }}</span></li>
-{%- endfor %}
-</ul>
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Toolbox</h2></div>
+<div class="marquee"><div class="mq-track">
+{%- for pass in (1..2) %}{%- for t in site.data.software.items %}
+<span class="mq-app"{% if pass == 2 %} aria-hidden="true"{% endif %}>{%- if t.icon.size > 0 -%}<img src="{{ t.icon | uri_escape }}" alt="" width="30" height="30" loading="lazy">{%- endif -%}{{ t.name }}</span>
+{%- endfor %}{%- endfor %}
+</div></div>
+</section>
+{%- endif %}
+{%- if r.skills.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Skills</h2></div>
+<div class="marquee is-rev"><div class="mq-track">
+{%- for pass in (1..2) %}{%- for t in r.skills %}<span class="mq-chip"{% if pass == 2 %} aria-hidden="true"{% endif %}>{{ t }}</span>{%- endfor %}{%- endfor %}
+</div></div>
 </section>
 {%- endif %}
 {%- if r.education.size > 0 %}
@@ -40,13 +56,6 @@ title: Resume — Arman Haghshenas
 <ul class="lrows">
 {%- for e in r.education %}<li><span class="lr-main" dir="auto"><b>{{ e.school }}</b>{%- if e.degree.size > 0 -%}<small>{{ e.degree }}</small>{%- endif -%}</span>{%- if e.period.size > 0 -%}<span class="lr-end">{{ e.period }}</span>{%- endif -%}</li>{%- endfor %}
 </ul>
-</section>
-{%- endif %}
-{%- if r.skills.size > 0 %}
-{%- assign n = n | plus: 1 %}
-<section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Skills</h2></div>
-<ul class="chips">{%- for t in r.skills %}<li>{{ t }}</li>{%- endfor %}</ul>
 </section>
 {%- endif %}
 {% include footer.html %}

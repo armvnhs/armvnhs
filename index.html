@@ -19,12 +19,14 @@ title: Arman Haghshenas — Logo and brand designer
 <img class="avatar" src="{{ s.avatar | uri_escape }}" alt="{{ s.name }}" width="100" height="100" fetchpriority="high" decoding="async">
 </div>
 <h1 class="hero-name">{{ s.name }}</h1>
-<p class="hero-tags">{%- for t in tags %}<span class="tag t{{ forloop.index }}">{{ t | strip }}</span>{%- endfor %}</p>
+<p class="hero-role">{{ s.tagline }}</p>
 {%- if s.bio.size > 0 %}<p class="bio" dir="auto">{{ s.bio }}</p>{%- endif %}
+<div class="hero-row">
 {% include socials.html email=true %}
 {%- if status_text.size > 0 %}
-<p class="hero-pill"><i class="pill-dot is-{{ s.status }}"></i>{{ status_text }}{%- if s.city.size > 0 %}<span class="pill-sep"></span>{{ s.city }}{%- endif %}</p>
+<span class="hero-meta"><i class="pill-dot is-{{ s.status }}"></i>{{ status_text }}{%- if s.city.size > 0 %}<span class="pill-sep"></span>{{ s.city }}{%- endif %}</span>
 {%- endif %}
+</div>
 </header>
 {%- assign n = 0 -%}
 {%- if companies.size > 0 %}
