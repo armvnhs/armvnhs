@@ -20,13 +20,11 @@ title: Arman Haghshenas — Logo and brand designer
 </div>
 <h1 class="hero-name">{{ s.name }}</h1>
 <p class="hero-role">{{ s.tagline }}</p>
-{%- if s.bio.size > 0 %}<p class="bio" dir="auto">{{ s.bio }}</p>{%- endif %}
-<div class="hero-row">
-{% include socials.html email=true %}
 {%- if status_text.size > 0 %}
-<span class="hero-meta"><span class="meta-item"><i class="pill-dot is-{{ s.status }}"></i>{{ status_text }}</span>{%- if s.city.size > 0 %}<span class="meta-item"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 16s5-4.2 5-8.2A5 5 0 0 0 4 7.8C4 11.8 9 16 9 16z"/><circle cx="9" cy="7.8" r="1.7"/></svg>{{ s.city }}</span>{%- endif %}</span>
+<p class="hero-meta"><span class="meta-item"><i class="pill-dot is-{{ s.status }}"></i>{{ status_text }}</span>{%- if s.city.size > 0 %}<span class="meta-item"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 16s5-4.2 5-8.2A5 5 0 0 0 4 7.8C4 11.8 9 16 9 16z"/><circle cx="9" cy="7.8" r="1.7"/></svg>{{ s.city }}</span>{%- endif %}</p>
 {%- endif %}
-</div>
+{%- if s.bio.size > 0 %}<p class="bio" dir="auto">{{ s.bio }}</p>{%- endif %}
+{% include socials.html email=true %}
 </header>
 {%- assign n = 0 -%}
 {%- if companies.size > 0 %}
@@ -84,7 +82,7 @@ title: Arman Haghshenas — Logo and brand designer
 <section class="block" id="blog">
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Blog</h2><span class="head-end">{% include lang-toggle.html %}<a class="more" href="/blog/">View all</a></span></div>
 <div class="plist">
-{%- for p in posts limit: 2 %}{% include post.html p=p %}{%- endfor %}
+{%- for p in posts limit: 3 %}{% include post.html p=p %}{%- endfor %}
 </div>
 </section>
 {%- endif %}
