@@ -2,17 +2,21 @@
   "items": [
     {
       "name": "LogoSVG",
-      "type": "Website",
       "description": "An open-source library of Iranian logos in SVG.",
       "logo": "/assets/img/Products/LogoSVG-Icon.webp",
       "link": "https://logosvg.ir"
     },
     {
       "name": "FireBlock",
-      "type": "Software",
       "description": "A practical app for blocking internet access via firewall.",
       "logo": "/assets/img/Products/FireBlock-Icon.webp",
       "link": "https://armvnhs.github.io/fireblock/"
+    },
+    {
+      "name": "Gratools",
+      "description": "Free Web Tools Directory",
+      "logo": "/assets/img/Gratools.png",
+      "link": "https://armvnhs.ir/gratools/"
     }
   ]
 }
