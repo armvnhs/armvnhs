@@ -4,7 +4,7 @@ nav: blog
 title: Blog — Arman Haghshenas
 ---
 <a class="back" href="/">← Home</a>
-<div class="page-head"><h1 class="page-title">Blog</h1><p class="page-lead">Notes on design, visual identity, and the tools I build.</p></div>
+<div class="page-head"><div class="post-meta"><h1 class="page-title">Blog</h1>{% include lang-toggle.html %}</div><p class="page-lead">Notes on design, visual identity, and the tools I build.</p></div>
 {%- assign years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
 {%- if years.size == 0 %}<p class="empty">Nothing here yet.</p>{%- endif %}
 {%- for y in years %}

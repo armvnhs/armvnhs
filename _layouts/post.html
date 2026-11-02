@@ -4,16 +4,22 @@ layout: default
 <a class="back" href="/blog/">← Blog</a>
 <article class="post">
 <header class="post-head">
-<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y/%m/%d" }}</time>
-<h1 dir="auto">{{ page.title }}</h1>
+<div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y/%m/%d" }}</time>{%- if page.body_fa.size > 0 or page.title_fa.size > 0 %}{% include lang-toggle.html %}{%- endif %}</div>
+<h1 dir="auto">{% include bi.html en=page.title fa=page.title_fa %}</h1>
 {%- if page.summary.size > 0 %}
-<p class="post-sum" dir="auto">{{ page.summary }}</p>
+<p class="post-sum" dir="auto">{% include bi.html en=page.summary fa=page.summary_fa %}</p>
 {%- endif %}
 </header>
 {%- if page.cover.size > 0 %}
 <img class="post-cover" src="{{ page.cover | uri_escape }}" alt="" decoding="async">
 {%- endif %}
-<div class="prose post-body">
+<div class="prose post-body{% if page.body_fa.size > 0 %} en{% endif %}">
 {{ content }}
 </div>
+{%- if page.body_fa.size > 0 %}
+<div class="prose post-body fa" lang="fa" dir="rtl">
+{{ page.body_fa | markdownify }}
+</div>
+{%- endif %}
 </article>
+{% include footer.html %}
