@@ -22,9 +22,9 @@ title: Resume — Arman Haghshenas
 {%- assign n = n | plus: 1 %}
 <section class="block">
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Experience</h2></div>
-<ol class="tl">
+<ol class="htl">
 {%- for c in cos %}
-<li><a class="tl-card" href="{{ c.url }}"><span class="tl-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span><span class="tl-name">{{ c.title }}</span><span class="tl-go">{% include arrow.html %}</span></a></li>
+<li><a class="htl-item" href="{{ c.url }}"><span class="htl-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span><span class="htl-name">{{ c.title }}</span></a></li>
 {%- endfor %}
 </ol>
 </section>
