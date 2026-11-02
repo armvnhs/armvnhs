@@ -17,6 +17,12 @@
       "description": "Library Free Tools Web",
       "logo": "/assets/img/Gratools.png",
       "link": "https://github.com/"
+    },
+    {
+      "name": "Superman",
+      "description": "Hero Plus Test",
+      "logo": "/assets/img/superman-action-comics-vol-1-boy-of-steel-tp-pre-order-5681431.webp",
+      "link": "https://github.com/"
     }
   ]
 }
