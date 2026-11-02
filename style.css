@@ -1111,3 +1111,21 @@ html[data-lang="fa"] .lang-toggle { border-color: var(--ink); background: var(--
 .pc-go svg { width: 18px; height: 18px; }
 .prose blockquote, .post-body blockquote { margin: 0; padding: 0; border: 0; }
 .post-body, .post-body > * { max-width: none; margin-inline: 0; }
+
+.section-head { align-items: center; }
+.pc-body { padding-inline-end: 46px; }
+.pcard:hover { padding-inline: 0; }
+@media (hover: hover) {
+  .pcard { isolation: isolate; }
+  .pcard::before { display: block; content: ""; position: absolute; z-index: -1; inset: 6px -14px; border-radius: 20px; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), #ececec, #f6f6f6 70%); opacity: 0; transform: scale(.97); transition: opacity .5s var(--ease), transform .8s var(--ease); }
+  .pcard:hover::before { opacity: 1; transform: none; }
+  .pc-thumb { transition: transform .8s cubic-bezier(.34, 1.56, .64, 1), box-shadow .6s var(--ease), border-radius .6s var(--ease); }
+  .pcard:hover .pc-thumb { transform: translateY(-3px) rotate(-2.5deg) scale(1.06); border-radius: 16px; box-shadow: 0 16px 26px -12px rgba(0, 0, 0, .38); }
+  .pcard:hover .pc-thumb img { transform: scale(1.12); }
+  .pc-body { transition: translate .8s var(--ease); }
+  .pcard:hover .pc-body { translate: 6px 0; }
+  .pc-sum { transition: color .5s; }
+  .pcard:hover .pc-sum { color: #4a4a4a; }
+  .pc-go { right: 4px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #dcdcdc; border-radius: 50%; background: #fff; opacity: 0; transform: translate(-14px, -50%) rotate(-45deg) scale(.7); transition: opacity .4s, transform .8s cubic-bezier(.34, 1.56, .64, 1); }
+  .pcard:hover .pc-go { opacity: 1; transform: translate(0, -50%) rotate(0) scale(1); }
+}
