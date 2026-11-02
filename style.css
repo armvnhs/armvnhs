@@ -1129,3 +1129,13 @@ html[data-lang="fa"] .lang-toggle { border-color: var(--ink); background: var(--
   .pc-go { right: 4px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #dcdcdc; border-radius: 50%; background: #fff; opacity: 0; transform: translate(-14px, -50%) rotate(-45deg) scale(.7); transition: opacity .4s, transform .8s cubic-bezier(.34, 1.56, .64, 1); }
   .pcard:hover .pc-go { opacity: 1; transform: translate(0, -50%) rotate(0) scale(1); }
 }
+
+.products { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.product { height: 100%; min-height: 88px; }
+.marquee.is-logos { margin-block: 4px; }
+.is-logos .mq-track { gap: 64px; padding-inline: 32px; align-items: center; animation-duration: 40s; }
+.mq-logo { display: grid; place-items: center; flex: none; height: 56px; text-decoration: none; }
+.mq-logo img { display: block; width: auto; height: 100%; max-width: 150px; object-fit: contain; filter: grayscale(1); opacity: .5; transition: filter .5s var(--ease), opacity .5s var(--ease), transform .6s var(--ease); }
+.mq-logo span { font-size: .95rem; font-weight: 600; color: #8a8a8a; }
+.mq-logo:hover img { filter: none; opacity: 1; transform: scale(1.08); }
+@media (hover: none) { .mq-logo img { filter: none; opacity: .85; } }

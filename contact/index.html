@@ -22,32 +22,6 @@ title: Contact — Arman Haghshenas
 {%- if phone.size > 0 %}<li><a class="crow" href="tel:{{ phone }}"><span class="ci">{% include icon.html name="phone" %}</span><span class="cm"><b>Phone</b><small dir="ltr">{{ phone }}</small></span>{% include arrow.html %}</a></li>{%- endif %}
 </ul>
 </section>
-<section class="block">
-<div class="section-head"><h2 class="section-title"><span class="num">02</span>Send a message</h2></div>
-<form class="cf" id="cf" data-endpoint="{% if s.formEndpoint contains 'http' %}{{ s.formEndpoint }}{% endif %}" data-mail="{{ s.email }}">
-<label><span>Name</span><input name="name" required dir="auto" autocomplete="name"></label>
-<label><span>Email or phone</span><input name="contact" required dir="ltr" autocomplete="off"></label>
-<label><span>About your project</span><textarea name="message" rows="5" required dir="auto"></textarea></label>
-<button class="btn" type="submit">Send message<span class="arrow">{% include icon.html name="send" %}</span></button>
-<p class="cf-note" role="status" aria-live="polite"></p>
-</form>
-</section>
+
 {% include footer.html %}
-<script>
-(function(){
-  var f=document.getElementById("cf");if(!f)return;
-  var note=f.querySelector(".cf-note");
-  f.addEventListener("submit",function(e){
-    e.preventDefault();
-    var fd=new FormData(f),ep=f.dataset.endpoint;
-    if(ep){
-      fetch(ep,{method:"POST",body:fd,headers:{Accept:"application/json"}}).then(function(r){
-        if(!r.ok)throw 0;f.reset();note.textContent="Got it. I’ll reply soon."
-      }).catch(function(){note.textContent="That didn’t go through. Please use one of the options above."});
-    }else{
-      var body=fd.get("message")+"\n\n"+fd.get("name")+" — "+fd.get("contact");
-      location.href="mailto:"+f.dataset.mail+"?subject="+encodeURIComponent("Project inquiry from "+fd.get("name"))+"&body="+encodeURIComponent(body);
-    }
-  });
-})();
-</script>
+
