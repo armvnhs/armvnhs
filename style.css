@@ -1093,3 +1093,21 @@ html[data-lang="fa"] .lang-toggle { border-color: var(--ink); background: var(--
 .pc-go { top: 50%; right: 0; width: auto; height: auto; background: transparent; box-shadow: none; color: #9a9a9a; transform: translate(-6px, -50%); }
 .pcard:hover .pc-go { opacity: 1; transform: translate(-8px, -50%); }
 @media (max-width: 620px) { .pc-thumb { width: 80px; height: 62px; } .pc-go { display: none; } }
+
+.progress { display: none; }
+.js .rvl { opacity: 0; transform: translateY(14px); transition: opacity 1s var(--ease) var(--d, 0s), transform 1.1s var(--ease) var(--d, 0s); }
+.js .stg { opacity: 0; }
+.js .in .stg { animation: pop 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
+@keyframes pop { from { opacity: 0; translate: 0 28px; scale: .94; } to { opacity: 1; translate: 0 0; scale: 1; } }
+@media (prefers-reduced-motion: reduce) { .js .stg { opacity: 1; } .js .in .stg { animation: none; } }
+.block, .block + .block { margin-top: 64px; }
+.hero + .block { margin-top: 60px; }
+.section-head { margin-bottom: 18px; }
+.logo-tile { aspect-ratio: auto; height: 76px; }
+.logos { gap: 16px 56px; }
+.hero .socials { margin-top: 24px; }
+.pc-body { padding-inline-end: 32px; }
+.pc-go .arrow { width: auto; height: auto; background: none; color: #a3a3a3; opacity: 1; transform: none; }
+.pc-go svg { width: 18px; height: 18px; }
+.prose blockquote, .post-body blockquote { margin: 0; padding: 0; border: 0; }
+.post-body, .post-body > * { max-width: none; margin-inline: 0; }

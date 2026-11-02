@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<a class="back" href="/">← Home</a>
+<h1 class="sr-only">{{ page.title }}</h1>
+{%- assign body = content | strip %}
+{%- if body.size > 0 %}
+<div class="prose co-body">
+{{ content }}
+</div>
+{%- endif %}

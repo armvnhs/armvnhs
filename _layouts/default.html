@@ -41,7 +41,6 @@
 <script>document.documentElement.className+=" js";try{if(localStorage.getItem("lang")==="fa")document.documentElement.dataset.lang="fa"}catch(e){}</script>
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
 <main class="wrap">
 {{ content }}
 </main>
@@ -75,6 +74,9 @@
   upd();
   var els=document.querySelectorAll(".block,.hero > *,.foot,.htl,.rs-stats");
   els.forEach(function(e,n){e.classList.add("rvl");e.style.setProperty("--d",(e.parentNode.classList.contains("hero")?n*0.07:0)+"s")});
+  document.querySelectorAll(".block .grid,.block .products,.block .plist,.block .logos,.block .shelf,.htl,.apps").forEach(function(p){
+    Array.prototype.forEach.call(p.children,function(c,n){c.classList.add("stg");c.style.setProperty("--i",n)});
+  });
   if("IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});
     els.forEach(function(e){io.observe(e)});
