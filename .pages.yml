@@ -176,6 +176,9 @@ content:
     type: file
     path: data/resume.json
     fields:
+      - name: years
+        label: Years of experience
+        type: number
       - name: summary
         label: Summary
         type: text
