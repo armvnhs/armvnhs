@@ -1,9 +1,18 @@
 ---
-title: من سوپر من هستم
+title: "Superman: The Symbol of Hope and Justice"
 date: 2026-11-01
-summary: |-
-  شیشسیشسیشسیصثضصثضصیً
-  ًًٌٌٌِِیضصیضصیضصیضصی
-cover: /assets/img/images.jpeg
+summary: The story of Krypton's last survivor, a hero with extraordinary powers
+  who protects Earth and represents hope, kindness, and justice.
+cover: /assets/img/superman-action-comics-vol-1-boy-of-steel-tp-pre-order-5681431.webp
+title_fa: سوپرمن؛ نماد امید و عدالت
+summary_fa: داستان آخرین بازمانده کریپتون که با قدرتی خارق‌العاده، از زمین
+  محافظت می‌کند و نماد امید، مهربانی و عدالت است.
+body_fa: من سوپرمنم. آخرین بازمانده کریپتون، سیاره‌ای که سال‌ها پیش در آتش
+  نابودی سوخت. در زمین بزرگ شدم، اما همیشه می‌دانستم که با دیگران تفاوت دارم.
+  قدرتی دارم که می‌تواند جهان را تغییر دهد، اما چیزی که من را تعریف می‌کند قدرتم
+  نیست، بلکه انتخابی است که هر روز برای محافظت از انسان‌ها می‌کنم. من برای شهرت،
+  قدرت یا فرمانروایی نمی‌جنگم. من اینجا هستم تا وقتی دنیا در تاریکی فرو می‌رود،
+  یادآوری کنم که هنوز امید وجود دارد. من سوپرمنم و تا زمانی که کسی به کمک نیاز
+  داشته باشد، تسلیم نخواهم شد.
 ---
-رمان سیلماریلیون، داستان آفرینش دنیا و آغاز عصر بدوی است و شخصیت هایی از مجموعه ی ارباب حلقه ها مانند الروند و گالادریل در آن حضور دارند و ایفای نقش می کنند. سیلماریل های سه گانه، جواهراتی هستند که توسط فئانور، باهوش ترین و بااستعدادترین فرد در بین الف ها، ساخته شده اند. درون این سه جواهر، نور دو درخت والینور، قبل از نابودی خود دو درخت به دست اولین ارباب تاریکی، محصور شده است. مدت ها بعد از این اتفاق، نور محافظت شده ی والینور امکان ادامه ی بقا را فقط در سیلماریل ها پیدا کرد، اما این سه جواهر به چنگال ارباب تاریکی، مورگوث، افتادند؛ او این جواهرات را در تاج پادشاهی ای قرار داد که در قلعه ی نفوذناپذیر آنگباند در شمال سرزمین میانه مورد حراست شدید قرار داشت. رمان سیلماریلیون، افسانه ی شورش فئانور و هم پیمانانش بر ضد خدایان، تبعیدشان از والینور، بازگشت آن ها به سرزمین میانه و جنگی خون بار و قهرمانانه علیه بزرگترین دشمن این شخصیت ها است.
+I am Superman. The last survivor of Krypton, a planet that was destroyed long ago. I grew up on Earth, but I always knew I was different. I have the power to change the world, but what truly defines me is not my strength, but my choice to protect humanity. I don't fight for fame, power, or glory. I am here to remind the world that hope still exists, even in its darkest moments. I am Superman, and as long as someone needs help, I will never give up.
