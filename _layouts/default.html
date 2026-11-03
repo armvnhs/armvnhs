@@ -74,7 +74,7 @@
   upd();
   var els=document.querySelectorAll(".block,.hero > *,.foot,.htl,.rs-stats");
   els.forEach(function(e,n){e.classList.add("rvl");e.style.setProperty("--d",(e.parentNode.classList.contains("hero")?n*0.07:0)+"s")});
-  document.querySelectorAll(".block .grid,.block .products,.block .plist,.block .logos,.block .shelf,.htl,.apps").forEach(function(p){
+  document.querySelectorAll(".block .grid,.block .prods,.block .wlist,.block .logos,.block .logo-wall,.block .shelf,.htl,.apps").forEach(function(p){
     Array.prototype.forEach.call(p.children,function(c,n){c.classList.add("stg");c.style.setProperty("--i",n)});
   });
   if("IntersectionObserver" in window){
@@ -117,8 +117,16 @@
       c.style.setProperty("--my",(e.clientY-r.top)+"px");
     });
   });
+  document.querySelectorAll(".fav-tab").forEach(function(t){
+    t.addEventListener("click",function(){
+      var s=t.closest(".block");
+      s.querySelectorAll(".fav-tab,.fav-panel").forEach(function(e){e.classList.remove("on")});
+      t.classList.add("on");
+      s.querySelector('.fav-panel[data-panel="'+t.dataset.tab+'"]').classList.add("on");
+    });
+  });
   var df=new Intl.DateTimeFormat("en-US",{year:"numeric",month:"short",day:"numeric"});
-  document.querySelectorAll("time[datetime]").forEach(function(e){var d=new Date(e.getAttribute("datetime"));if(!isNaN(d))e.textContent=df.format(d)});
+  document.querySelectorAll("time[datetime]:not([data-raw])").forEach(function(e){var d=new Date(e.getAttribute("datetime"));if(!isNaN(d))e.textContent=df.format(d)});
 })();
 </script>
 </body>

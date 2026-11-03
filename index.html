@@ -12,6 +12,7 @@ title: Arman Haghshenas — Logo and brand designer
 {%- assign products = site.data.products.items -%}
 {%- assign posts = site.posts -%}
 {%- assign music = site.data.music.items -%}
+{%- assign films = site.data.films.items -%}
 {%- assign books = site.data.books.items -%}
 <header class="hero">
 <div class="avatar-wrap">
@@ -29,14 +30,14 @@ title: Arman Haghshenas — Logo and brand designer
 {%- if companies.size > 0 %}
 {%- assign n = n | plus: 1 -%}
 {%- assign cn = companies.size -%}
-{%- if cn > 6 -%}{%- assign cn = 6 -%}{%- endif %}
+{%- if cn > 4 -%}{%- assign cn = 4 -%}{%- endif %}
 <section class="block" id="experience">
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Companies</h2></div>
-<div class="marquee is-logos"><div class="mq-track">
-{%- for pass in (1..2) %}{%- for rep in (1..4) %}{%- for c in companies %}
-<a class="mq-logo" href="{{ c.url }}" title="{{ c.title }}" aria-label="{{ c.title }}"{% if pass == 2 or rep > 1 %} aria-hidden="true" tabindex="-1"{% endif %}>{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<span>{{ c.title }}</span>{%- endif -%}</a>
-{%- endfor %}{%- endfor %}{%- endfor %}
-</div></div>
+<div class="logo-wall" style="--n: {{ cn }}">
+{%- for c in companies %}
+<a class="lw-cell" href="{{ c.url }}" title="{{ c.title }}" aria-label="{{ c.title }}">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<span>{{ c.title }}</span>{%- endif -%}</a>
+{%- endfor %}
+</div>
 </section>
 {%- endif %}
 {%- if projects.size > 0 %}
@@ -54,21 +55,19 @@ title: Arman Haghshenas — Logo and brand designer
 {%- assign n = n | plus: 1 %}
 <section class="block" id="built">
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Things I’ve built</h2></div>
-<div class="products">
+<div class="prods">
 {%- for p in products %}
 {%- if p.link.size > 0 -%}
 {%- assign link_parts = p.link | split: '/' -%}
 {%- assign link_host = link_parts[2] | remove_first: 'www.' -%}
-<a class="product" href="{{ p.link }}" target="_blank" rel="noopener">
+<a class="prod" href="{{ p.link }}" target="_blank" rel="noopener">
 {%- else -%}
 {%- assign link_host = '' -%}
-<div class="product">
+<div class="prod">
 {%- endif %}
-<span class="product-body">
-<span class="product-logo">{%- if p.logo.size > 0 -%}<img src="{{ p.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ p.name | slice: 0 | upcase }}</b>{%- endif -%}</span>
-<span class="product-text"><span class="product-name">{{ p.name }}</span><span class="product-desc">{{ p.description }}</span></span>
-<span class="product-bottom"><span class="product-host">{{ link_host }}</span>{% include arrow.html %}</span>
-</span>
+<span class="prod-icon">{%- if p.logo.size > 0 -%}<img src="{{ p.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ p.name | slice: 0 | upcase }}</b>{%- endif -%}</span>
+<span class="prod-main"><b>{{ p.name }}{%- if p.link.size > 0 -%}<svg class="ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4"/></svg>{%- endif -%}</b>{%- if link_host.size > 0 -%}<small>{{ link_host }}</small>{%- endif -%}</span>
+<span class="prod-desc">{{ p.description }}</span>
 {%- if p.link.size > 0 -%}</a>{%- else -%}</div>{%- endif %}
 {%- endfor %}
 </div>
@@ -77,24 +76,25 @@ title: Arman Haghshenas — Logo and brand designer
 {%- if posts.size > 0 %}
 {%- assign n = n | plus: 1 %}
 <section class="block" id="blog">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Blog</h2><span class="head-end">{% include lang-toggle.html %}<a class="more" href="/blog/">View all</a></span></div>
-<div class="plist">
-{%- for p in posts limit: 3 %}{% include post.html p=p %}{%- endfor %}
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Writing</h2><span class="head-end">{% include lang-toggle.html %}<a class="more" href="/blog/">View all</a></span></div>
+<div class="wlist">
+{%- for p in posts limit: 5 %}{% include post.html p=p %}{%- endfor %}
 </div>
 </section>
 {%- endif %}
-{%- if music.size > 0 %}
-{%- assign n = n | plus: 1 %}
-<section class="block" id="music">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Music I love</h2></div>
-{% include shelf.html items=music kind="music" %}
-</section>
-{%- endif %}
-{%- if books.size > 0 %}
-{%- assign n = n | plus: 1 %}
-<section class="block" id="books">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Books I love</h2></div>
-{% include shelf.html items=books kind="books" %}
+{%- if music.size > 0 or books.size > 0 or films.size > 0 %}
+{%- assign n = n | plus: 1 -%}
+{%- if music.size > 0 -%}{%- assign first_tab = 'music' -%}{%- elsif books.size > 0 -%}{%- assign first_tab = 'books' -%}{%- else -%}{%- assign first_tab = 'films' -%}{%- endif %}
+<section class="block" id="favorites">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Favorites</h2>
+<div class="fav-tabs" role="tablist">
+{%- if music.size > 0 %}<button class="fav-tab{% if first_tab == 'music' %} on{% endif %}" type="button" data-tab="music">Music</button>{%- endif %}
+{%- if books.size > 0 %}<button class="fav-tab{% if first_tab == 'books' %} on{% endif %}" type="button" data-tab="books">Books</button>{%- endif %}
+{%- if films.size > 0 %}<button class="fav-tab{% if first_tab == 'films' %} on{% endif %}" type="button" data-tab="films">Films</button>{%- endif %}
+</div></div>
+{%- if music.size > 0 %}<div class="fav-panel{% if first_tab == 'music' %} on{% endif %}" data-panel="music">{% include shelf.html items=music kind="music" %}</div>{%- endif %}
+{%- if books.size > 0 %}<div class="fav-panel{% if first_tab == 'books' %} on{% endif %}" data-panel="books">{% include shelf.html items=books kind="books" %}</div>{%- endif %}
+{%- if films.size > 0 %}<div class="fav-panel{% if first_tab == 'films' %} on{% endif %}" data-panel="films">{% include shelf.html items=films kind="films" %}</div>{%- endif %}
 </section>
 {%- endif %}
 {% include footer.html %}

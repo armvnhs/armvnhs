@@ -2,27 +2,17 @@
   "items": [
     {
       "name": "LogoSVG",
+      "type": "Website",
       "description": "An open-source library of Iranian logos in SVG.",
       "logo": "/assets/img/Products/LogoSVG-Icon.webp",
       "link": "https://logosvg.ir"
     },
     {
       "name": "FireBlock",
+      "type": "Software",
       "description": "A practical app for blocking internet access via firewall.",
       "logo": "/assets/img/Products/FireBlock-Icon.webp",
       "link": "https://armvnhs.github.io/fireblock/"
-    },
-    {
-      "name": "Gratools",
-      "description": "Library Free Tools Web",
-      "logo": "/assets/img/Gratools.png",
-      "link": "https://github.com/"
-    },
-    {
-      "name": "Superman",
-      "description": "Hero Plus Test",
-      "logo": "/assets/img/superman-action-comics-vol-1-boy-of-steel-tp-pre-order-5681431.webp",
-      "link": "https://github.com/"
     }
   ]
 }
