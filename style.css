@@ -1201,3 +1201,10 @@ html { scrollbar-gutter: stable; }
 .is-films .shelf-cover::after { content: ""; position: absolute; inset: 0; border-radius: 5px; background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .5) 50%, transparent 62%) 130% 0 / 260% 100% no-repeat; pointer-events: none; transition: background-position 1.1s var(--ease); }
 .is-films .shelf-item:hover .shelf-cover { transform: translateY(-5px) scale(1.03); }
 .is-films .shelf-item:hover .shelf-cover::after { background-position: -30% 0; }
+
+.section-title { align-items: baseline; gap: 12px; font-size: 1.1rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.section-title .num { display: inline; padding: 0; border: 0; border-radius: 0; font-size: .78rem; font-weight: 500; letter-spacing: .06em; color: #a3a3a3; }
+.section-title .num::after { content: none; }
+.lw-cell { height: 128px; padding: 0 24px; }
+.lw-cell img { width: 100%; height: 64px; max-width: 180px; max-height: none; object-fit: contain; }
+@media (max-width: 560px) { .lw-cell { height: 96px; padding: 0 12px; } .lw-cell img { height: 44px; max-width: 110px; } }

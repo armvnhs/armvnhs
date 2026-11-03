@@ -82,19 +82,25 @@ title: Arman Haghshenas — Logo and brand designer
 </div>
 </section>
 {%- endif %}
-{%- if music.size > 0 or books.size > 0 or films.size > 0 %}
-{%- assign n = n | plus: 1 -%}
-{%- if music.size > 0 -%}{%- assign first_tab = 'music' -%}{%- elsif books.size > 0 -%}{%- assign first_tab = 'books' -%}{%- else -%}{%- assign first_tab = 'films' -%}{%- endif %}
-<section class="block" id="favorites">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Favorites</h2>
-<div class="fav-tabs" role="tablist">
-{%- if music.size > 0 %}<button class="fav-tab{% if first_tab == 'music' %} on{% endif %}" type="button" data-tab="music">Music</button>{%- endif %}
-{%- if books.size > 0 %}<button class="fav-tab{% if first_tab == 'books' %} on{% endif %}" type="button" data-tab="books">Books</button>{%- endif %}
-{%- if films.size > 0 %}<button class="fav-tab{% if first_tab == 'films' %} on{% endif %}" type="button" data-tab="films">Films</button>{%- endif %}
-</div></div>
-{%- if music.size > 0 %}<div class="fav-panel{% if first_tab == 'music' %} on{% endif %}" data-panel="music">{% include shelf.html items=music kind="music" %}</div>{%- endif %}
-{%- if books.size > 0 %}<div class="fav-panel{% if first_tab == 'books' %} on{% endif %}" data-panel="books">{% include shelf.html items=books kind="books" %}</div>{%- endif %}
-{%- if films.size > 0 %}<div class="fav-panel{% if first_tab == 'films' %} on{% endif %}" data-panel="films">{% include shelf.html items=films kind="films" %}</div>{%- endif %}
+{%- if music.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="music">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Music I love</h2></div>
+{% include shelf.html items=music kind="music" %}
+</section>
+{%- endif %}
+{%- if books.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="books">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Books I love</h2></div>
+{% include shelf.html items=books kind="books" %}
+</section>
+{%- endif %}
+{%- if films.size > 0 %}
+{%- assign n = n | plus: 1 %}
+<section class="block" id="films">
+<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Films I love</h2></div>
+{% include shelf.html items=films kind="films" %}
 </section>
 {%- endif %}
 {% include footer.html %}
