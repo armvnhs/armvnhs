@@ -291,3 +291,27 @@ content:
       - name: body_fa
         label: Persian content
         type: rich-text
+  - name: films
+    label: Films
+    type: file
+    path: data/films.json
+    fields:
+      - name: items
+        label: Films
+        type: object
+        list:
+          collapsible:
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: by
+            label: Director
+            type: string
+          - name: cover
+            label: Poster
+            type: image
+          - name: link
+            label: Link
+            type: string
