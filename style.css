@@ -1208,3 +1208,9 @@ html { scrollbar-gutter: stable; }
 .lw-cell { height: 128px; padding: 0 24px; }
 .lw-cell img { width: 100%; height: 64px; max-width: 180px; max-height: none; object-fit: contain; }
 @media (max-width: 560px) { .lw-cell { height: 96px; padding: 0 12px; } .lw-cell img { height: 44px; max-width: 110px; } }
+
+.logo-wall { gap: 12px; overflow: visible; border: 0; border-radius: 0; background: none; }
+.lw-cell { height: 150px; padding: 26px; border: 1px solid var(--line); border-radius: 22px; background: #fafafa; transition: background .4s, border-color .4s, transform .6s var(--ease); }
+.lw-cell img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }
+.lw-cell:hover { border-color: #cfcfcf; background: #fff; transform: translateY(-3px); }
+@media (max-width: 560px) { .logo-wall { gap: 8px; } .lw-cell { height: 104px; padding: 16px; border-radius: 18px; } .lw-cell img { height: 100%; max-width: none; } }
