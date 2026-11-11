@@ -315,3 +315,21 @@ content:
           - name: link
             label: Link
             type: string
+  - name: stickers
+    label: Stickers
+    type: file
+    path: data/stickers.json
+    fields:
+      - name: items
+        label: Stickers
+        type: object
+        list:
+          collapsible:
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: image
+            label: Image
+            type: image
