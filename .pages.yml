@@ -333,3 +333,6 @@ content:
           - name: image
             label: Image
             type: image
+          - name: card
+            label: Card shape
+            type: boolean
