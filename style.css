@@ -1248,3 +1248,24 @@ html { scrollbar-gutter: stable; }
 .car-cap-link b { font-size: 1rem; font-weight: 600; }
 .car-cap-link span { font-size: .88rem; color: var(--muted); }
 .car-cap-link[aria-disabled] { pointer-events: none; }
+
+.hero .avatar { box-sizing: border-box; border: 5px solid #fff; box-shadow: 0 0 0 1px rgba(10, 10, 10, .07), 0 10px 22px -8px rgba(10, 10, 10, .3); transform: rotate(-5deg); transition: transform .7s cubic-bezier(.34, 1.56, .64, 1); }
+.hero .avatar:hover { transform: rotate(3deg) scale(1.05); }
+.car-card { box-sizing: border-box; border: 5px solid #fff; box-shadow: 0 0 0 1px rgba(10, 10, 10, .07), 0 12px 28px -10px rgba(var(--shadow-rgb), .3); }
+.sb { position: relative; height: 300px; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: radial-gradient(#dcdcdc 1px, transparent 1.2px) 0 0 / 18px 18px; }
+.stk { position: absolute; left: var(--x); top: var(--y); width: clamp(92px, 22%, 136px); cursor: grab; touch-action: none; user-select: none; transform: translate(-50%, -50%) rotate(var(--r)); transition: transform .6s cubic-bezier(.34, 1.56, .64, 1); }
+.stk img { display: block; width: 100%; height: auto; pointer-events: none; --o: 3px; --sy: 7px; --sb: 9px; filter: drop-shadow(var(--o) 0 0 #fff) drop-shadow(calc(var(--o) * -1) 0 0 #fff) drop-shadow(0 var(--o) 0 #fff) drop-shadow(0 calc(var(--o) * -1) 0 #fff) drop-shadow(2px 2px 0 #fff) drop-shadow(-2px -2px 0 #fff) drop-shadow(2px -2px 0 #fff) drop-shadow(-2px 2px 0 #fff) drop-shadow(0 var(--sy) var(--sb) rgba(10, 10, 10, .26)); transition: filter .5s var(--ease); }
+@media (hover: hover) { .stk:hover { transform: translate(-50%, -50%) rotate(calc(var(--r) * .4)) scale(1.06); } }
+.stk.is-held { cursor: grabbing; transform: translate(-50%, -50%) rotate(calc(var(--r) * -.5)) scale(1.12); }
+.stk.is-held img { --sy: 16px; --sb: 18px; }
+@media (max-width: 560px) { .sb { height: 260px; } }
+
+.prods { gap: 10px; border-top: 0; }
+.prod { padding: 14px 18px; border: 1px solid var(--line); border-radius: 22px; background: #fafafa; transition: background .4s, border-color .4s, transform .6s var(--ease); }
+.wlist { gap: 10px; }
+.wrow, .wlist > .wrow:first-child { padding: 12px 18px 12px 12px; border: 1px solid var(--line); border-radius: 22px; background: #fafafa; transition: background .4s, border-color .4s, transform .6s var(--ease); }
+.wr-thumb { border-radius: 12px; }
+@media (hover: hover) {
+  a.prod:hover, .wrow:hover { border-color: #cfcfcf; background: #fff; transform: translateY(-3px); }
+}
+@media (max-width: 560px) { .lw-cell { border-radius: 22px; } }
