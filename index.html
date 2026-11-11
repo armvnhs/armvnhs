@@ -41,11 +41,18 @@ title: Arman Haghshenas — Logo and brand designer
 {%- assign n = n | plus: 1 %}
 <section class="block" id="projects">
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Projects</h2><a class="more" href="/projects/">View all</a></div>
-<div class="grid">
+<div class="car-fit" data-carousel>
+<div class="car">
+<div class="car-track" role="group" aria-roledescription="carousel" aria-label="Selected projects" tabindex="0">
 {%- for p in projects limit: site.home_projects %}
-{% include card.html href=p.link title=p.title category=p.category cover=p.cover eager=forloop.first %}
+<div class="car-slot" data-title="{{ p.title }}" data-cat="{{ p.category }}" data-href="{{ p.link }}">
+<div class="car-float"><a class="car-card"{% if p.link.size > 0 %} href="{{ p.link }}" target="_blank" rel="noopener"{% endif %} aria-label="{{ p.title }}"><img src="{{ p.cover | uri_escape }}" alt="" draggable="false" decoding="async"><span class="car-sheen" aria-hidden="true"></span></a></div>
+</div>
 {%- endfor %}
 </div>
+</div>
+</div>
+<p class="car-cap"><a class="car-cap-link" target="_blank" rel="noopener"><b></b><span></span></a></p>
 </section>
 {%- endif %}
 {%- if products.size > 0 %}

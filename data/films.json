@@ -1,10 +1,3 @@
 {
-  "items": [
-    {
-      "title": "Forrest Gump",
-      "by": "Robert Zemeckis",
-      "cover": "/assets/img/Forrest Gump.jpg",
-      "link": "https://www.imdb.com/title/tt0109830/"
-    }
-  ]
+  "items": []
 }

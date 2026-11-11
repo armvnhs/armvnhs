@@ -9,10 +9,6 @@
   "email": "armvnhs@gmail.com",
   "telegram": "https://t.me/armvnpv",
   "phone": "+989135957196",
-  "whatsapp": "http://wa.me/+989135957196",
-  "bio": "I design logos and visual identities, and build small tools along the way. Based in Isfahan, currently at Entekhab Group.",
-  "city": "Isfahan, Iran",
-  "timezone": "Asia/Tehran",
   "contactText": "Have a project in mind? Let’s talk.",
   "social": [
     {
@@ -31,5 +27,9 @@
       "label": "LinkedIn",
       "url": "https://www.linkedin.com/in/armvnhs"
     }
-  ]
+  ],
+  "bio": "I design logos and visual identities, and build small tools along the way. Based in Isfahan, currently at Entekhab Group.",
+  "city": "Isfahan, Iran",
+  "timezone": "Asia/Tehran",
+  "coords": ""
 }
