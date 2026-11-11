@@ -1,3 +1,19 @@
 {
-  "items": []
+  "items": [
+    {
+      "title": "Isfahan Core",
+      "image": "/assets/img/Projects/isfahan-core.avif",
+      "card": true
+    },
+    {
+      "title": "Lady Tel",
+      "image": "/assets/img/Projects/lady-tel.avif",
+      "card": true
+    },
+    {
+      "title": "Hidway",
+      "image": "/assets/img/Projects/hidway.avif",
+      "card": true
+    }
+  ]
 }

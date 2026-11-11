@@ -64,15 +64,12 @@
 </script>
 <script>
 (function(){
-  var root=document.documentElement,bar=document.querySelector(".progress"),tk=false;
-  var upd=function(){
-    var h=root.scrollHeight-innerHeight,y=scrollY;
-    if(bar)bar.style.transform="scaleX("+(h>0?Math.min(y/h,1):0)+")";
-    root.style.setProperty("--sy",y);
-    tk=false;
-  };
-  addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});
-  upd();
+  var root=document.documentElement,ring=document.querySelector(".ring"),tk=false;
+  if(ring){
+    var spin=function(){ring.style.transform="rotate("+(scrollY*0.3).toFixed(1)+"deg)";tk=false};
+    addEventListener("scroll",function(){if(!tk&&scrollY<1400){tk=true;requestAnimationFrame(spin)}},{passive:true});
+    spin();
+  }
   var els=document.querySelectorAll(".block,.hero > *,.foot,.htl,.rs-stats");
   els.forEach(function(e,n){e.classList.add("rvl");e.style.setProperty("--d",(e.parentNode.classList.contains("hero")?n*0.07:0)+"s")});
   document.querySelectorAll(".block .grid,.block .prods,.block .wlist,.block .logos,.block .logo-wall,.block .shelf,.htl,.apps").forEach(function(p){
