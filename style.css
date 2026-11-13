@@ -1284,3 +1284,54 @@ html { scrollbar-gutter: stable; }
 @media (max-width: 620px) { .wr-text { flex: 1; } .wr-sub { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; } .wr-end:not(:has(svg)) { display: none; } }
 
 .ring { transform: none; will-change: transform; }
+
+/* Dragging the project ring must not select text or paint a highlight over the cards. */
+.car-fit, .car-slot, .car-card, .car-cap { -webkit-user-select: none; user-select: none; }
+.car-card img { -webkit-user-drag: none; }
+.car-fit ::selection, .car-cap ::selection { background: transparent; color: inherit; }
+
+/* Homepage lists: logos as a matrix, builds as cards, writing as an index. */
+#experience .wlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(124px, 1fr)); gap: 8px; border: 0; }
+#experience .wrow, #experience .wlist > .wrow:first-child {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  min-height: 116px; padding: 18px 12px; border: 1px solid var(--line); border-radius: 20px; background: #fff;
+  transition: border-color .45s, background .45s, transform .55s var(--ease);
+}
+#experience .wrow:hover { border-color: #cfcfcf; background: #fafafa; transform: translateY(-3px); }
+#experience .wr-thumb.is-logo { width: 100%; height: 48px; border-radius: 0; background: none; box-shadow: none; }
+#experience .wr-thumb.is-logo img { width: auto; height: auto; max-width: 100%; max-height: 100%; padding: 0; object-fit: contain; }
+#experience .wr-thumb.is-logo b { font-size: 1.5rem; }
+#experience .wr-title { flex: none; font-size: .82rem; font-weight: 500; color: var(--muted); text-align: center; transition: color .4s; }
+#experience .wrow:hover .wr-title { color: var(--ink); translate: none; }
+#experience .wr-dots, #experience .wr-end { display: none; }
+
+#built .wlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 10px; border: 0; }
+#built .wrow, #built .wlist > .wrow:first-child {
+  gap: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 20px; background: #fff;
+  transition: border-color .45s, box-shadow .55s var(--ease), transform .55s var(--ease);
+}
+#built .wrow:hover { border-color: #d4d4d4; background: #fff; transform: translateY(-2px); box-shadow: 0 22px 40px -32px rgba(10, 10, 10, .8); }
+#built .wr-thumb.is-app { width: 48px; height: 48px; border-radius: 14px; }
+#built .wr-dots { display: none; }
+#built .wr-text { flex: 1; min-width: 0; }
+#built .wr-title { font-size: .98rem; font-weight: 600; }
+#built .wr-sub { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+#built .wr-end { font-size: .8rem; }
+
+#blog .wlist > .wrow { padding: 15px 2px; gap: 18px; }
+#blog .wr-thumb { width: 86px; height: 60px; border-radius: 12px; }
+#blog .wr-title { font-size: 1rem; font-weight: 550; }
+#blog .wrow time { font-size: .76rem; letter-spacing: .04em; color: #a3a3a3; }
+#blog .wrow::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+  background: var(--ink); transform: scaleX(0); transform-origin: left;
+  transition: transform .65s var(--ease);
+}
+#blog .wrow:hover::after, #blog .wrow:focus-visible::after { transform: scaleX(1); }
+html[data-lang="fa"] #blog .wrow::after { transform-origin: right; }
+
+@media (max-width: 560px) {
+  #experience .wlist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #built .wlist { grid-template-columns: 1fr; }
+  #blog .wr-thumb { width: 68px; height: 50px; }
+}
