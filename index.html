@@ -50,7 +50,7 @@ title: Arman Haghshenas — Logo and brand designer
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Companies</h2></div>
 <div class="wlist">
 {%- for c in companies %}
-<a class="wrow" href="{{ c.url }}"><span class="wr-thumb is-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span><span class="wr-title">{{ c.title }}</span><span class="wr-dots" aria-hidden="true"></span><span class="wr-end"><svg class="wr-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8h9M9 4.5 12.5 8 9 11.5"/></svg></span></a>
+<a class="wrow" href="{{ c.url }}" aria-label="{{ c.title }}" title="{{ c.title }}"><span class="wr-thumb is-logo">{%- if c.logo.size > 0 -%}<img src="{{ c.logo | uri_escape }}" alt="" loading="lazy">{%- else -%}<b>{{ c.title | slice: 0 }}</b>{%- endif -%}</span><span class="wr-title">{{ c.title }}</span><span class="wr-dots" aria-hidden="true"></span><span class="wr-end"><svg class="wr-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8h9M9 4.5 12.5 8 9 11.5"/></svg></span></a>
 {%- endfor %}
 </div>
 </section>
