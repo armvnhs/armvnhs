@@ -10,7 +10,6 @@ title: Arman Haghshenas — Logo and brand designer
 {%- assign projects = site.data.projects.items -%}
 {%- assign companies = site.companies | sort: 'order' -%}
 {%- assign products = site.data.products.items -%}
-{%- assign stickers = site.data.stickers.items -%}
 {%- assign posts = site.posts -%}
 <header class="hero">
 <div class="avatar-wrap">
@@ -85,20 +84,6 @@ title: Arman Haghshenas — Logo and brand designer
 <div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Writing</h2><span class="head-end">{% include lang-toggle.html %}<a class="more" href="/blog/">View all</a></span></div>
 <div class="wlist">
 {%- for p in posts limit: 5 %}{% include post.html p=p %}{%- endfor %}
-</div>
-</section>
-{%- endif %}
-{%- if stickers.size > 0 %}
-{%- assign n = n | plus: 1 -%}
-{%- assign sx = "14,36,58,80,24,50,72,90" | split: "," -%}
-{%- assign sy = "28,62,26,58,74,76,22,72" | split: "," -%}
-{%- assign sr = "-8,6,-3,9,4,-10,5,-6" | split: "," %}
-<section class="block" id="stickers">
-<div class="section-head"><h2 class="section-title"><span class="num">0{{ n }}</span>Stickers</h2><span class="more">Drag them around</span></div>
-<div class="sb" data-board>
-{%- for s in stickers limit: 8 %}
-<div class="stk{% if s.card %} is-card{% endif %}" style="--x: {{ sx[forloop.index0] }}%; --y: {{ sy[forloop.index0] }}%; --r: {{ sr[forloop.index0] }}deg; z-index: {{ forloop.index }}"><img src="{{ s.image | uri_escape }}" alt="{{ s.title }}" draggable="false" loading="lazy"></div>
-{%- endfor %}
 </div>
 </section>
 {%- endif %}
